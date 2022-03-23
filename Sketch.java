@@ -1,6 +1,9 @@
 import processing.core.PApplet;
+import stuff.Vehicle;
 
 public class Sketch extends PApplet {
+
+  Vehicle v = new Vehicle(0, 0);
 
   public void settings() {
     size(800, 800);
@@ -12,6 +15,7 @@ public class Sketch extends PApplet {
 
   public void draw() {
     fill(255);
-    ellipse(mouseX, mouseY, 25, 25);
+
+    v.draw(this);
   }
 }
