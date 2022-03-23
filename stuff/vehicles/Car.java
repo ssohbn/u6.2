@@ -41,9 +41,18 @@ public class Car extends Vehicle {
 
     @Override
     public void draw(PApplet sketch) {
+        int wheelSize = 20;
+
         sketch.pushMatrix();
         sketch.fill(this.color.r, this.color.g, this.color.b, 255);
         sketch.rect(this.position.x, this.position.y, this.size.width, this.size.height);
+
+        sketch.fill(0);
+        // left block wheel
+        sketch.rect(this.position.x, this.position.y + this.size.height, wheelSize, wheelSize);
+        // right block wheel
+        sketch.rect(this.position.x + this.size.width - wheelSize, this.position.y + this.size.height, wheelSize, wheelSize);
+
         sketch.popMatrix();   
     }
 }
