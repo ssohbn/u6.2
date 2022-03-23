@@ -11,4 +11,10 @@ public class Position {
         this.x = x;
         this.y = y;
     }
+
+    public Position add(Speed speed) {
+        this.x += speed.x;
+        this.y += speed.y;
+        return this;
+    }
 }

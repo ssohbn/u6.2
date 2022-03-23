@@ -1,29 +1,28 @@
-package stuff;
+package stuff.vehicles;
 import processing.core.PApplet;
 import stuff.util.Color;
 import stuff.util.Position;
 import stuff.util.Size;
 import stuff.util.Speed;
-
+/**
+ * abstract vehicle class
+ */
 public abstract class Vehicle {
     public Position position;
     public Size size;
     public Color color;
     public Speed speed;
-    
-    public Vehicle(int x, int y) {
-        this.position = new Position(x, y);
-    }
 
     /**
-     * dis empty haha
+     * move da vehicle
      */
-    public void move(){
-
-    };
+    public abstract void move();
     
-    public void draw(PApplet sketch) {
+    /**
+     * draw da vehicle
+     * @param sketch the PApplet instance to draw this vehicle on
+     */
+    public abstract void draw(PApplet sketch);
 
-    }
 
 }

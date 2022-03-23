@@ -1,19 +1,21 @@
 package stuff.vehicles;
 
 import processing.core.PApplet;
-import stuff.Vehicle;
 import stuff.util.Color;
+import stuff.util.Position;
 import stuff.util.Size;
 import stuff.util.Speed;
 
 public class Car extends Vehicle {
-
-    public Car(int x, int y) {
-        super(x, y);
-        System.out.println(this.position.x);
-
+    /**
+     * simple vehicle
+     * it go vroom :)
+     * @param pos starting position of da vroom vroom car
+     */
+    public Car(Position pos) {
+        this.position = pos;
         this.color = new Color(255, 0, 0);
-        this.size = new Size(80, 50);
+        this.size  = new Size(80, 50);
         this.speed = new Speed(10, 0);
     }
 
@@ -21,6 +23,11 @@ public class Car extends Vehicle {
     public void move() {
         this.position.x += this.speed.x;
     }
+
+    public void move(Speed speed) {
+        this.position.add(speed); 
+    }
+
     @Override
     public void draw(PApplet sketch) {
         sketch.pushMatrix();
@@ -28,5 +35,5 @@ public class Car extends Vehicle {
         sketch.rect(this.position.x, this.position.y, this.size.width, this.size.height);
         sketch.popMatrix();   
     }
-    
+
 }
