@@ -1,24 +1,20 @@
 package stuff;
 import processing.core.PApplet;
+import stuff.util.Color;
+import stuff.util.Position;
+import stuff.util.Size;
+import stuff.util.Speed;
 
-public class Vehicle {
-    private Position position;
-    private Size size;
-    private Color color;
+public abstract class Vehicle {
+    public Position position;
+    public Size size;
+    public Color color;
+    public Speed speed;
     
     public Vehicle(int x, int y) {
         this.position = new Position(x, y);
-        this.size = new Size(10, 10);
-        this.color = new Color(255, 0, 0);
-    }
-    
-    public int getX() {
-        return this.position.x;
     }
 
-    public int getY() {
-        return this.position.y;
-    }
     /**
      * dis empty haha
      */
@@ -27,10 +23,7 @@ public class Vehicle {
     };
     
     public void draw(PApplet sketch) {
-        sketch.pushMatrix();
-        sketch.fill(this.color.r, this.color.g, this.color.b, 255);
-        sketch.rect(this.position.x, this.position.y, this.size.width, this.size.height);
-        sketch.popMatrix();
+
     }
 
 }

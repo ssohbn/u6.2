@@ -1,4 +1,4 @@
-package stuff;
+package stuff.util;
 
 public class Color {
     public int r, g, b;

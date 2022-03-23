@@ -1,9 +1,10 @@
 import processing.core.PApplet;
 import stuff.Vehicle;
+import stuff.vehicles.Car;
 
 public class Sketch extends PApplet {
 
-  Vehicle v = new Vehicle(0, 0);
+  Car c = new Car(10,10);
 
   public void settings() {
     size(800, 800);
@@ -16,6 +17,6 @@ public class Sketch extends PApplet {
   public void draw() {
     fill(255);
 
-    v.draw(this);
+    c.draw(this);
   }
 }

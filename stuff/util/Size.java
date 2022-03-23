@@ -1,4 +1,4 @@
-package stuff;
+package stuff.util;
 
 public class Size {
     public int width, height;
