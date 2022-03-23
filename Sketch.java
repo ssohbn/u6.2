@@ -46,6 +46,8 @@ public class Sketch extends PApplet {
   }
 
   public void inputMove(Car car) {
+    // this leaves the awesome INTENDED FEATURE 
+    // where moving diagonally is faster
     if (keys[kLEFT]) lmq.move(new Speed(-5, 0));
     if (keys[kRIGHT]) lmq.move(new Speed(5, 0));
     if (keys[kDOWN]) lmq.move(new Speed(0, 5));
