@@ -18,10 +18,21 @@ public class Car extends Vehicle {
         this.size  = new Size(80, 50);
         this.speed = new Speed(10, 0);
     }
+    /**
+     * colorful vroom vroom
+     * @param pos
+     * @param color
+     */
+    public Car(Position pos, Color color) {
+        this.position = pos;
+        this.color = color;
+        this.size  = new Size(80, 50);
+        this.speed = new Speed(10, 0);
+    }
 
     @Override
     public void move() {
-        this.position.x += this.speed.x;
+        this.position.add(this.speed);
     }
 
     public void move(Speed speed) {
@@ -35,5 +46,4 @@ public class Car extends Vehicle {
         sketch.rect(this.position.x, this.position.y, this.size.width, this.size.height);
         sketch.popMatrix();   
     }
-
 }

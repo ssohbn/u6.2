@@ -8,10 +8,10 @@ import stuff.util.Speed;
  * abstract vehicle class
  */
 public abstract class Vehicle {
-    public Position position;
-    public Size size;
-    public Color color;
-    public Speed speed;
+    protected Position position;
+    protected Size size;
+    protected Color color;
+    protected Speed speed;
 
     /**
      * move da vehicle

@@ -1,12 +1,19 @@
 import processing.core.PApplet;
+import stuff.util.Color;
 import stuff.util.Position;
 import stuff.util.Speed;
 import stuff.vehicles.Car;
 
 public class Sketch extends PApplet {
 
-  Car lmq = new Car(new Position(10,10));
-  Car player = new Car(new Position(50, 50));
+  Car lmq = new Car(new Position(50, 50), new Color(255, 0, 0));
+  Car towMater = new Car(new Position(300, 50), new Color(80, 20, 40));
+  Car sallyCarrera = new Car(new Position(200, 50), new Color(0, 0, 255));
+  boolean[] keys = new boolean[4];
+  final int kLEFT = 0;
+  final int kRIGHT = 1;
+  final int kUP = 2;
+  final int kDOWN = 3;
 
   public void settings() {
     size(800, 800);
@@ -15,41 +22,48 @@ public class Sketch extends PApplet {
   public void setup() {
     background(255);
   }
-
+  
   public void keyPressed() {
-    if ( key != CODED) return;
-    System.out.println(key);
+    if (keyCode == LEFT)
+      keys[kLEFT] = true;
+    if (keyCode == UP)  
+      keys[kUP] = true;
+    if (keyCode == RIGHT)
+      keys[kRIGHT] = true;
+    if (keyCode == DOWN)
+      keys[kDOWN] = true;
+  }
 
-    // left
-    if ( keyCode == 37) {
-      player.position.add(new Speed(-5, 0));
-    }
-      
-    // up
-    if ( keyCode == 38) {
-      player.position.add(new Speed(0, -5));
-    }
+  public void keyReleased() {
+    if (keyCode == LEFT)
+      keys[kLEFT] = false;
+    if (keyCode == UP)  
+      keys[kUP] = false;
+    if (keyCode == RIGHT)
+      keys[kRIGHT] = false;
+    if (keyCode == DOWN)
+      keys[kDOWN] = false;
+  }
 
-    // right
-    if ( keyCode == 39) {
-      player.position.add(new Speed(5, 0));
-    }
-
-    // down
-    if ( keyCode == 40) {
-      player.position.add(new Speed(0, 5));
-    }
+  public void inputMove(Car car) {
+    if (keys[kLEFT]) lmq.move(new Speed(-5, 0));
+    if (keys[kRIGHT]) lmq.move(new Speed(5, 0));
+    if (keys[kDOWN]) lmq.move(new Speed(0, 5));
+    if (keys[kUP]) lmq.move(new Speed(0, -5));
 
   }
 
   public void draw() {
     background(255);
-
     fill(255);
 
     lmq.draw(this);
-    lmq.move();
+    inputMove(lmq);
 
-    player.draw(this);
+    sallyCarrera.draw(this);
+    sallyCarrera.move();
+
+    towMater.draw(this);
+    towMater.move();
   }
 }
