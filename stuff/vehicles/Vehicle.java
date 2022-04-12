@@ -4,10 +4,13 @@ import stuff.util.Color;
 import stuff.util.Position;
 import stuff.util.Size;
 import stuff.util.Speed;
+
+import stuff.interfaces.IDraw;
+import stuff.interfaces.ICollide;
 /**
  * abstract vehicle class
  */
-public abstract class Vehicle {
+public abstract class Vehicle implements IDraw, ICollide {
     protected Position position;
     protected Size size;
     protected Color color;
@@ -23,6 +26,4 @@ public abstract class Vehicle {
      * @param sketch the PApplet instance to draw this vehicle on
      */
     public abstract void draw(PApplet sketch);
-
-
 }
