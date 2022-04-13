@@ -9,7 +9,14 @@ public class Bounds {
         this.bottom = bottom;
     }
 
-    public void display() {
+    public Bounds(Position position, Size size) {
+		this.left = position.x;
+		this.right = position.x + size.width;
+		this.top = position.y;
+		this.bottom = position.y + size.height;
+	}
+
+	public void display() {
         System.out.println("left: " + this.left);
         System.out.println("right: " + this.right);
         System.out.println("top: " + this.top);

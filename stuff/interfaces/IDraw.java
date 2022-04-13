@@ -1,8 +1,9 @@
 package stuff.interfaces;
 
-import stuff.util.Bounds;
 import processing.core.PApplet;
+import stuff.util.Position;
 
 public interface IDraw {
 	public void draw(PApplet sketch);
+	public Position getPosition();
 }

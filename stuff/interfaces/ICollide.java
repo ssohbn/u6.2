@@ -1,6 +1,7 @@
 package stuff.interfaces;
 import stuff.util.Bounds;
 import stuff.util.Position;
+import stuff.util.Size;
 
 class Collisions {
 
@@ -30,18 +31,31 @@ class Collisions {
 }
 
 public interface ICollide {
+
+	public CollisionInfo getCollisionInfo();
 	
 	default boolean colliding(ICollide collider) {
 		boolean result = false;
 		if (Collisions.withinBounds(this.getBounds(), collider.getBounds())) {
 			result = true;
+
+			this.onCollide(collider.getCollisionInfo());
+			collider.onCollide(this.getCollisionInfo());
+
 		} 
+
 		return result;
 	}
 
-	public void onCollide();
+	public void onCollide(CollisionInfo collisionInfo);
 	
-	public Bounds getBounds();
+	default Bounds getBounds() {
+		// TODO: check copilot
+		return new Bounds(this.getPosition().x, this.getPosition().y, this.getSize().width, this.getSize().height);
+	}
+
 	public Position getPosition();
+
+	public Size getSize();
 
 }

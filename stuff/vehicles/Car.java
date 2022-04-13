@@ -1,13 +1,17 @@
 package stuff.vehicles;
 
 import processing.core.PApplet;
+import stuff.interfaces.CollisionInfo;
+import stuff.util.Bounds;
 import stuff.util.Color;
 import stuff.util.Position;
 import stuff.util.Size;
 import stuff.util.Speed;
 
 public class Car extends Vehicle {
-    /**
+    private CollisionInfo collisionInfo;
+
+	/**
      * simple vehicle
      * it go vroom :)
      * @param pos starting position of da vroom vroom car
@@ -18,6 +22,7 @@ public class Car extends Vehicle {
         this.size  = new Size(80, 50);
         this.speed = new Speed(10, 0);
     }
+
     /**
      * colorful vroom vroom
      * @param pos
@@ -28,7 +33,8 @@ public class Car extends Vehicle {
         this.color = color;
         this.size  = new Size(80, 50);
         this.speed = new Speed(10, 0);
-    }
+		this.collisionInfo = CollisionInfo.PLAYER;
+	}
 
     @Override
     public void move() {
@@ -55,5 +61,30 @@ public class Car extends Vehicle {
 
         sketch.popMatrix();   
     }
-	
+
+	public Bounds getBounds() {
+		return new Bounds(this.position, this.size);
+	}
+
+	@Override
+	public Position getPosition() {
+		return this.position;
+	}
+
+	@Override
+	public Size getSize() {
+		return this.size;
+	}
+
+	@Override
+	public CollisionInfo getCollisionInfo() {
+		return this.collisionInfo;
+	}
+
+	@Override
+	public void onCollide(CollisionInfo collisionInfo) {
+		if (collisionInfo == CollisionInfo.EVIL) {
+			// heres where i die and restart
+		}
+	}
 }
