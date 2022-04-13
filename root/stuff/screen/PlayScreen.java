@@ -3,6 +3,7 @@ package root.stuff.screen;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
+import root.Sketch;
 import root.stuff.interfaces.IView;
 import root.stuff.util.Color;
 import root.stuff.util.Position;
@@ -28,9 +29,9 @@ public class PlayScreen implements IView {
 
 	@Override
 	public void draw(PApplet sketch) {
-		for (Row row : rows) {
-			row.draw(sketch);
-		}
+		// for (Row row : rows) {
+		// 	row.draw(sketch);
+		// }
 
 		lmq.draw(sketch);
 		sallyCarrera.draw(sketch);

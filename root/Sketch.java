@@ -16,11 +16,11 @@ public class Sketch extends PApplet {
   }
   
   public void keyPressed() {
-	  screen.handleKeydown(this, keyCode);
+	  Sketch.screen.handleKeydown(this, keyCode);
   }
 
   public void keyReleased() {
-	  screen.handleKeyup(this, keyCode);
+	  Sketch.screen.handleKeyup(this, keyCode);
   }
 
 
@@ -28,9 +28,9 @@ public class Sketch extends PApplet {
 	screen.update(this);
     background(255);
     fill(255);
-	screen.draw(this);
+	Sketch.screen.draw(this);
 
 
-	screen.hud(this);
+	Sketch.screen.hud(this);
   }
 }
