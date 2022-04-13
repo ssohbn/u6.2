@@ -8,7 +8,7 @@ public class Sketch extends PApplet {
 	public static IView screen = new StartScreen();
 
   public void settings() {
-    size(800, 800);
+    size(640, 640);
   }
 
   public void setup() {
