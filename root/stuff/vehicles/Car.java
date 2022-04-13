@@ -19,8 +19,7 @@ public class Car extends Vehicle {
     public Car(Position pos) {
         this.position = pos;
         this.color = new Color(255, 0, 0);
-        this.size  = new Size(80, 50);
-        this.speed = new Speed(10, 0);
+		this.new_constants();
     }
 
     /**
@@ -31,9 +30,12 @@ public class Car extends Vehicle {
     public Car(Position pos, Color color) {
         this.position = pos;
         this.color = color;
-        this.size  = new Size(80, 50);
+		this.new_constants();
+	}
+
+	private void new_constants() {
+        this.size  = new Size(64, 48);
         this.speed = new Speed(10, 0);
-		this.collisionInfo = CollisionInfo.PLAYER;
 	}
 
     @Override
@@ -47,7 +49,7 @@ public class Car extends Vehicle {
 
     @Override
     public void draw(PApplet sketch) {
-        int wheelSize = 20;
+        int wheelSize = 16;
 
         sketch.pushMatrix();
         sketch.fill(this.color.r, this.color.g, this.color.b, 255);

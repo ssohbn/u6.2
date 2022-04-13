@@ -12,12 +12,13 @@ import root.stuff.util.Color;
 import root.stuff.util.Position;
 import root.stuff.util.Speed;
 import root.stuff.vehicles.Car;
+import root.stuff.vehicles.Player;
 
 public class PlayScreen implements IView {
 
 	public static int score = 0;
-
-	Car lmq, towMater, sallyCarrera;
+	Player lmq;
+	Car  towMater, sallyCarrera;
 	Biome biome;
 	boolean[] keys = new boolean[4];
 	final int kLEFT 	= 0;
@@ -28,7 +29,7 @@ public class PlayScreen implements IView {
 
 
 	public PlayScreen() {
-		this.lmq 		  = new Car(new Position(50, 50), new Color(255, 0, 0));
+		this.lmq 		  = new Player(new Position(320, 320));
 		drawables.add(lmq);
 
 		this.towMater 	  = new Car(new Position(300, 50), new Color(80, 20, 40));
@@ -126,23 +127,34 @@ public class PlayScreen implements IView {
 	public void inputMove(Car car) {
 		// this leaves the awesome INTENDED FEATURE 
 		// where moving diagonally is faster
-		if (keys[kLEFT]) this.lmq.move(new Speed(-5, 0));
-		if (keys[kRIGHT]) this.lmq.move(new Speed(5, 0));
-		if (keys[kDOWN]) this.lmq.move(new Speed(0, 5));
-		if (keys[kUP]) this.lmq.move(new Speed(0, -5));
+		// if (keys[kLEFT]) this.lmq.move(new Speed(-64, 0));
+		// if (keys[kRIGHT]) this.lmq.move(new Speed(64, 0));
+		// if (keys[kDOWN]) this.lmq.move(new Speed(0, 64));
+		// if (keys[kUP]) this.lmq.move(new Speed(0, -64));
 
 	}
 
 	@Override
 	public void handleKeydown(PApplet sketch, int keyCode) {
-		if (keyCode == sketch.LEFT)
-		keys[kLEFT] = true;
-		if (keyCode == sketch.UP)  
-		keys[kUP] = true;
-		if (keyCode == sketch.RIGHT)
-		keys[kRIGHT] = true;
-		if (keyCode == sketch.DOWN)
-		keys[kDOWN] = true;
+		if (keyCode == sketch.LEFT) {
+			keys[kLEFT] = true;
+			this.lmq.move(new Speed(-64, 0));
+		}
+
+		if (keyCode == sketch.UP) {
+			this.lmq.move(new Speed(0, -64));
+			keys[kUP] = true;
+		}
+
+		if (keyCode == sketch.RIGHT) {
+			keys[kRIGHT] = true;
+			this.lmq.move(new Speed(64, 0));
+		}
+
+		if (keyCode == sketch.DOWN) {
+			keys[kDOWN] = true;
+			this.lmq.move(new Speed(0, 64));
+		}
 	}
 
 	@Override
