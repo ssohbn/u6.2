@@ -1,8 +1,8 @@
-package stuff.screen;
+package root.stuff.screen;
 
 import processing.core.PApplet;
-import stuff.interfaces.ICollide;
-import stuff.interfaces.IDraw;
+import root.stuff.interfaces.ICollide;
+import root.stuff.interfaces.IDraw;
 
 public abstract class Row implements IDraw, ICollide {
 	final Tile[] tiles = new Tile[6]; // 6x6

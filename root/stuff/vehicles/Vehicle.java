@@ -1,12 +1,11 @@
-package stuff.vehicles;
+package root.stuff.vehicles;
 import processing.core.PApplet;
-import stuff.util.Color;
-import stuff.util.Position;
-import stuff.util.Size;
-import stuff.util.Speed;
-
-import stuff.interfaces.IDraw;
-import stuff.interfaces.ICollide;
+import root.stuff.interfaces.ICollide;
+import root.stuff.interfaces.IDraw;
+import root.stuff.util.Color;
+import root.stuff.util.Position;
+import root.stuff.util.Size;
+import root.stuff.util.Speed;
 /**
  * abstract vehicle class
  */

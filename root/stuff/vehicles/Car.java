@@ -1,12 +1,12 @@
-package stuff.vehicles;
+package root.stuff.vehicles;
 
 import processing.core.PApplet;
-import stuff.interfaces.CollisionInfo;
-import stuff.util.Bounds;
-import stuff.util.Color;
-import stuff.util.Position;
-import stuff.util.Size;
-import stuff.util.Speed;
+import root.stuff.interfaces.CollisionInfo;
+import root.stuff.util.Bounds;
+import root.stuff.util.Color;
+import root.stuff.util.Position;
+import root.stuff.util.Size;
+import root.stuff.util.Speed;
 
 public class Car extends Vehicle {
     private CollisionInfo collisionInfo;

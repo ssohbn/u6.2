@@ -1,4 +1,4 @@
-package stuff.interfaces;
+package root.stuff.interfaces;
 
 import processing.core.PApplet;
 

@@ -1,20 +1,25 @@
-package stuff.screen;
+package root.stuff.screen;
 
 import java.util.ArrayList;
 
 import processing.core.PApplet;
-import stuff.interfaces.IView;
-import stuff.util.Color;
-import stuff.util.Position;
-import stuff.util.Speed;
-import stuff.vehicles.Car;
+import root.stuff.interfaces.IView;
+import root.stuff.util.Color;
+import root.stuff.util.Position;
+import root.stuff.util.Speed;
+import root.stuff.vehicles.Car;
 
 public class PlayScreen implements IView {
+	Car lmq, towMater, sallyCarrera;
+	public PlayScreen() {
+		this.lmq = new Car(new Position(50, 50), new Color(255, 0, 0));
+		this.towMater = new Car(new Position(300, 50), new Color(80, 20, 40));
+		this.sallyCarrera = new Car(new Position(200, 50), new Color(0, 0, 255));
+
+	}
+
 	public static ArrayList<Row> rows;
 
-  Car lmq = new Car(new Position(50, 50), new Color(255, 0, 0));
-  Car towMater = new Car(new Position(300, 50), new Color(80, 20, 40));
-  Car sallyCarrera = new Car(new Position(200, 50), new Color(0, 0, 255));
   boolean[] keys = new boolean[4];
   final int kLEFT = 0;
   final int kRIGHT = 1;
@@ -43,17 +48,19 @@ public class PlayScreen implements IView {
 
 	@Override
 	public void hud(PApplet sketch) {
-		// TODO Auto-generated method stub
+		sketch.fill(0);
+		sketch.text("cool hud", 40, 240);
+
 		
 	}
 
 	public void inputMove(Car car) {
 		// this leaves the awesome INTENDED FEATURE 
 		// where moving diagonally is faster
-		if (keys[kLEFT]) lmq.move(new Speed(-5, 0));
-		if (keys[kRIGHT]) lmq.move(new Speed(5, 0));
-		if (keys[kDOWN]) lmq.move(new Speed(0, 5));
-		if (keys[kUP]) lmq.move(new Speed(0, -5));
+		if (keys[kLEFT]) this.lmq.move(new Speed(-5, 0));
+		if (keys[kRIGHT]) this.lmq.move(new Speed(5, 0));
+		if (keys[kDOWN]) this.lmq.move(new Speed(0, 5));
+		if (keys[kUP]) this.lmq.move(new Speed(0, -5));
 
 	}
 

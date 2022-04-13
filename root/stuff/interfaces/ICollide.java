@@ -1,7 +1,7 @@
-package stuff.interfaces;
-import stuff.util.Bounds;
-import stuff.util.Position;
-import stuff.util.Size;
+package root.stuff.interfaces;
+import root.stuff.util.Bounds;
+import root.stuff.util.Position;
+import root.stuff.util.Size;
 
 class Collisions {
 

@@ -1,7 +1,8 @@
-package stuff.screen;
+package root.stuff.screen;
 
 import processing.core.PApplet;
-import stuff.interfaces.IView;
+import root.Sketch;
+import root.stuff.interfaces.IView;
 
 public class StartScreen implements IView {
 
@@ -19,20 +20,23 @@ public class StartScreen implements IView {
 	@Override
 	public void hud(PApplet sketch) {
 		sketch.fill(0);
-		sketch.text("welcome to videogame", 40, 240);
+		sketch.text("welcome to videogame click any key", 40, 240);
 		
 	}
 
 	@Override
 	public void handleKeydown(PApplet sketch, int keyCode) {
-		// TODO Auto-generated method stub
-		
+		Sketch.screen = new PlayScreen(); 
 	}
 
 	@Override
 	public void handleKeyup(PApplet sketch, int keyCode) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public StartScreen() {
+
 	}
 
 	

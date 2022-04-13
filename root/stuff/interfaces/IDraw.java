@@ -1,7 +1,7 @@
-package stuff.interfaces;
+package root.stuff.interfaces;
 
 import processing.core.PApplet;
-import stuff.util.Position;
+import root.stuff.util.Position;
 
 public interface IDraw {
 	public void draw(PApplet sketch);

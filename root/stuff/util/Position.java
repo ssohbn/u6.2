@@ -1,4 +1,4 @@
-package stuff.util;
+package root.stuff.util;
 
 public class Position {
     public int x, y;

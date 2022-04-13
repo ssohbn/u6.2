@@ -1,16 +1,11 @@
+package root;
 import processing.core.PApplet;
-import stuff.interfaces.IView;
-import stuff.screen.PlayScreen;
-import stuff.screen.StartScreen;
-import stuff.util.Color;
-import stuff.util.Position;
-import stuff.util.Speed;
-import stuff.vehicles.Car;
+import root.stuff.interfaces.IView;
+import root.stuff.screen.StartScreen;
 
 public class Sketch extends PApplet {
 
-	public IView screen = new StartScreen();
-
+	public static IView screen = new StartScreen();
 
   public void settings() {
     size(800, 800);

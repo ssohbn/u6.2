@@ -1,4 +1,4 @@
-package stuff.util; 
+package root.stuff.util; 
 
 public class Bounds {
 	 public int left, right, top, bottom;

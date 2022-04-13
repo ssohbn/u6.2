@@ -1,11 +1,11 @@
-package stuff.screen;
+package root.stuff.screen;
 
 import processing.core.PApplet;
-import stuff.interfaces.ICollide;
-import stuff.interfaces.IDraw;
-import stuff.util.Color;
-import stuff.util.Position;
-import stuff.util.Size;
+import root.stuff.interfaces.ICollide;
+import root.stuff.interfaces.IDraw;
+import root.stuff.util.Color;
+import root.stuff.util.Position;
+import root.stuff.util.Size;
 
 public abstract class Tile implements IDraw, ICollide {
 	protected Size size;
