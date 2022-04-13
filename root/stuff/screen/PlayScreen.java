@@ -7,12 +7,16 @@ import root.stuff.interfaces.IView;
 import root.stuff.screen.GrassLands.GrassLandsRow;
 import root.stuff.screen.Water.WaterRow;
 import root.stuff.interfaces.IDraw;
+import root.stuff.interfaces.IRow;
 import root.stuff.util.Color;
 import root.stuff.util.Position;
 import root.stuff.util.Speed;
 import root.stuff.vehicles.Car;
 
 public class PlayScreen implements IView {
+
+	public static int score = 0;
+
 	Car lmq, towMater, sallyCarrera;
 	Biome biome;
 	boolean[] keys = new boolean[4];
@@ -43,6 +47,7 @@ public class PlayScreen implements IView {
 		for (int i = 0; i < 10; i++) {
 			rows.add(new GrassLandsRow(i * 64));
 		}
+		rows.add(new GrassLandsRow(-64));
 		return rows;
 	}
 
@@ -55,11 +60,11 @@ public class PlayScreen implements IView {
 		lmq.draw(sketch);
 		sallyCarrera.draw(sketch);
 		towMater.draw(sketch);
-		
 	}
 
 	@Override
 	public void update(PApplet sketch) {
+		score++;
 		
 		inputMove(lmq);
 		sallyCarrera.move();
@@ -68,11 +73,14 @@ public class PlayScreen implements IView {
 		ArrayList<IDraw> toRemove = new ArrayList<IDraw>();
 
 		for (IDraw drawable : drawables) {
-			drawable.fall(1);
+			drawable.fall(2);
 
-			if (drawable.shouldPurgeOffscreen()) {
+			if (drawable.shouldPurgeOffscreen() ) {
 				toRemove.add(drawable);
-				shouldGenNewRow = true;
+
+				if (drawable instanceof IRow) {
+					shouldGenNewRow = true;
+				}
 			}
 		}
 
@@ -81,8 +89,11 @@ public class PlayScreen implements IView {
 		}
 
 		for ( IDraw drawable : toRemove) {
+			System.out.println("Removing " + drawable);
 			drawables.remove(drawable);
+			System.out.println(drawables.size());
 		}
+
 	}
 
 	public void genNewRow() {
@@ -107,6 +118,7 @@ public class PlayScreen implements IView {
 	public void hud(PApplet sketch) {
 		sketch.fill(0);
 		sketch.text("cool hud", 40, 240);
+		sketch.text("score: " + score, 40, 260);
 
 		
 	}

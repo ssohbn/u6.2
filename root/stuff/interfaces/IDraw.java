@@ -13,6 +13,9 @@ public interface IDraw {
 		if (this.getPosition().y > 640) {
 			res = true;
 		}
+		if (this.getPosition().x > 640 || this.getPosition().x < 0) {
+			res = true;
+		}
 
 		return res;
 	}
