@@ -20,6 +20,7 @@ public class PlayScreen implements IView {
 	final int kRIGHT  = 1;
 	final int kUP 	= 2;
 	final int kDOWN 	= 3;
+	boolean firstFlag = false;
 
 
 	public PlayScreen() {
@@ -39,8 +40,7 @@ public class PlayScreen implements IView {
 
 	static ArrayList<IDraw> genStartingRows() {
 		ArrayList<IDraw> rows = new ArrayList<IDraw>();
-		for (int i = -1; i < 10; i++) {
-			// 11 rows so one is always offscreen
+		for (int i = 0; i < 10; i++) {
 			rows.add(new GrassLandsRow(i * 64));
 		}
 		return rows;
@@ -64,21 +64,31 @@ public class PlayScreen implements IView {
 		inputMove(lmq);
 		sallyCarrera.move();
 		towMater.move();
+		boolean shouldGenNewRow = false;
+		ArrayList<IDraw> toRemove = new ArrayList<IDraw>();
 
 		for (IDraw drawable : drawables) {
 			drawable.fall(1);
 
 			if (drawable.shouldPurgeOffscreen()) {
-				// drawables.remove(drawable); // error ???
-				genNewRow();
+				toRemove.add(drawable);
+				shouldGenNewRow = true;
 			}
+		}
+
+		if (shouldGenNewRow) {
+			genNewRow();
+		}
+
+		for ( IDraw drawable : toRemove) {
+			drawables.remove(drawable);
 		}
 	}
 
 	public void genNewRow() {
 		switch (this.biome) {
 			case GRASSLANDS:
-				// drawables.add(new GrassLandsRow(-64));
+				drawables.add(new GrassLandsRow(-64));
 				break;
 			case DESERT:
 				break;
