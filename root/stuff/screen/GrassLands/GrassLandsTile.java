@@ -8,7 +8,6 @@ public class GrassLandsTile extends TemplateTile {
 
 	public GrassLandsTile(Position position) {
 		super(position);
-		System.out.println("GrassLandsTile: " + position.x + " " + position.y);
 	}
 
 	@Override

@@ -7,7 +7,6 @@ public class GrassLandsRow extends TemplateRow {
 
 	public GrassLandsRow(int y) {
 		super(y);
-		System.out.println("GrassLandsRow: " + y);
 	}
 
 	@Override

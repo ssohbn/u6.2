@@ -39,4 +39,9 @@ public abstract class TemplateTile implements ITile {
 	public Size getSize() {
 		return this.size;
 	}
+
+	public void fall(int y) {
+		this.position.y += y;
+	}
+
 }

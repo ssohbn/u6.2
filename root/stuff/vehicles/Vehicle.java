@@ -15,6 +15,10 @@ public abstract class Vehicle implements IDraw, ICollide {
     protected Color color;
     protected Speed speed;
 
+	public void fall(int y) {
+		this.position.y += y;
+	}
+
     /**
      * move da vehicle
      */

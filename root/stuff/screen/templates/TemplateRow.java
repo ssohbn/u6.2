@@ -27,6 +27,14 @@ public abstract class TemplateRow implements IRow {
 		}
 	}
 
+	public void fall(int y) {
+		this.position.y += y;
+		for (ITile tile : this.tiles) {
+			tile.fall(y);
+		}
+
+	}
+
 	@Override
 	public Position getPosition() {
 		return position;
