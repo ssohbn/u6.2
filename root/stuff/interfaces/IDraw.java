@@ -10,7 +10,7 @@ public interface IDraw {
 
 	default boolean shouldPurgeOffscreen() {
 		boolean res = false;
-		if (this.getPosition().y > 640) {
+		if (this.getPosition().y >= 640) {
 			res = true;
 		}
 		if (this.getPosition().x > 640 || this.getPosition().x < 0) {
