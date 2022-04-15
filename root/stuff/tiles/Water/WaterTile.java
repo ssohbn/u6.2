@@ -1,8 +1,8 @@
-package root.stuff.screen.Water;
+package root.stuff.tiles.Water;
 
 import processing.core.PApplet;
 import root.Sketch;
-import root.stuff.screen.templates.TemplateTile;
+import root.stuff.tiles.templates.TemplateTile;
 import root.stuff.util.Position;
 
 public class WaterTile extends TemplateTile {

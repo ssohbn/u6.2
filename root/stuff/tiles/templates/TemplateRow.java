@@ -1,6 +1,5 @@
-package root.stuff.screen.templates;
+package root.stuff.tiles.templates;
 
-import processing.core.PApplet;
 import root.Sketch;
 import root.stuff.interfaces.IRow;
 import root.stuff.interfaces.ITile;

@@ -1,6 +1,5 @@
 package root.stuff.sprites;
 
-import processing.core.PApplet;
 import root.Sketch;
 import root.stuff.util.Position;
 import root.stuff.util.Size;

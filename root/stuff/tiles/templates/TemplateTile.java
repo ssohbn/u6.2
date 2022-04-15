@@ -1,4 +1,4 @@
-package root.stuff.screen.templates;
+package root.stuff.tiles.templates;
 
 import root.Sketch;
 import root.stuff.interfaces.ITile;

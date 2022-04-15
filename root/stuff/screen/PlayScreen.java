@@ -3,12 +3,13 @@ package root.stuff.screen;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
-import root.stuff.screen.Forest.ForestRow;
-import root.stuff.screen.GrassLands.GrassLandsRow;
-import root.stuff.screen.Water.WaterRow;
 import root.Sketch;
 import root.stuff.interfaces.IDraw;
 import root.stuff.interfaces.IRow;
+import root.stuff.tiles.Biome;
+import root.stuff.tiles.Forest.ForestRow;
+import root.stuff.tiles.GrassLands.GrassLandsRow;
+import root.stuff.tiles.Water.WaterRow;
 import root.stuff.util.Color;
 import root.stuff.util.Position;
 import root.stuff.util.Speed;

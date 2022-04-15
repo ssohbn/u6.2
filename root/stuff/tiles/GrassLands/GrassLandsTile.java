@@ -1,8 +1,8 @@
-package root.stuff.screen.GrassLands;
+package root.stuff.tiles.GrassLands;
 
 import processing.core.PImage;
 import root.Sketch;
-import root.stuff.screen.templates.TemplateTile;
+import root.stuff.tiles.templates.TemplateTile;
 import root.stuff.util.Position;
 
 public class GrassLandsTile extends TemplateTile {

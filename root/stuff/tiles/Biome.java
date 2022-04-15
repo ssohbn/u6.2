@@ -1,4 +1,4 @@
-package root.stuff.screen;
+package root.stuff.tiles;
 
 public enum Biome {
 	GRASSLANDS,

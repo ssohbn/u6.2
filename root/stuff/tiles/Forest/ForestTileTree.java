@@ -1,4 +1,4 @@
-package root.stuff.screen.Forest;
+package root.stuff.tiles.Forest;
 
 import processing.core.PImage;
 import root.Sketch;

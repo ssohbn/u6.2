@@ -2,6 +2,7 @@ package root.stuff.sprites;
 
 import processing.core.PApplet;
 import processing.core.PImage;
+import root.Sketch;
 import root.stuff.interfaces.ICollide;
 import root.stuff.interfaces.IDraw;
 import root.stuff.util.Position;
@@ -13,7 +14,7 @@ public abstract class Sprite implements IDraw, ICollide {
 	protected PImage image;
 	protected PApplet sketch;
 
-	public Sprite(Position position, Size size, PApplet sketch) {
+	public Sprite(Position position, Size size, Sketch sketch) {
 		this.position = position;
 		this.size = size;
 		this.sketch = sketch;
