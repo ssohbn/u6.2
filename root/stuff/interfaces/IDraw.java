@@ -2,10 +2,12 @@ package root.stuff.interfaces;
 
 import processing.core.PApplet;
 import root.stuff.util.Position;
+import root.stuff.util.Size;
 
 public interface IDraw {
 	public void draw(PApplet sketch);
 	public Position getPosition();
+	public Size getSize();
 	public void fall(int i);
 
 	default boolean shouldPurgeOffscreen() {

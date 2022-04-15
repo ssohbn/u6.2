@@ -1,7 +1,6 @@
 package root.stuff.screen.templates;
 
 import processing.core.PApplet;
-import root.stuff.interfaces.CollisionInfo;
 import root.stuff.interfaces.ITile;
 import root.stuff.util.Position;
 import root.stuff.util.Size;
@@ -23,16 +22,6 @@ public abstract class TemplateTile implements ITile {
 	@Override
 	public Position getPosition() {
 		return this.position;
-	}
-
-	@Override
-	public CollisionInfo getCollisionInfo() {
-		return CollisionInfo.NOTHING_SPECIAL;
-	}
-
-	@Override
-	public void onCollide(CollisionInfo collisionInfo) {
-		// nothing special
 	}
 
 	@Override

@@ -1,7 +1,7 @@
 package root.stuff.vehicles;
 
 import processing.core.PApplet;
-import root.stuff.interfaces.CollisionInfo;
+import root.stuff.interfaces.ICollide;
 import root.stuff.util.Bounds;
 import root.stuff.util.Color;
 import root.stuff.util.Position;
@@ -9,7 +9,6 @@ import root.stuff.util.Size;
 import root.stuff.util.Speed;
 
 public class Car extends Vehicle {
-    private CollisionInfo collisionInfo;
 
 	/**
      * simple vehicle
@@ -79,14 +78,7 @@ public class Car extends Vehicle {
 	}
 
 	@Override
-	public CollisionInfo getCollisionInfo() {
-		return this.collisionInfo;
-	}
-
-	@Override
-	public void onCollide(CollisionInfo collisionInfo) {
-		if (collisionInfo == CollisionInfo.EVIL) {
-			// heres where i die and restart
-		}
+	public void onCollide(ICollide collider) {
+		// TODO: die
 	}
 }

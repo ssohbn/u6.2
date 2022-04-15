@@ -32,25 +32,23 @@ class Collisions {
 
 public interface ICollide {
 
-	public CollisionInfo getCollisionInfo();
 	
 	default boolean colliding(ICollide collider) {
 		boolean result = false;
 		if (Collisions.withinBounds(this.getBounds(), collider.getBounds())) {
 			result = true;
 
-			this.onCollide(collider.getCollisionInfo());
-			collider.onCollide(this.getCollisionInfo());
+			this.onCollide(collider);
+			collider.onCollide(this);
 
 		} 
 
 		return result;
 	}
 
-	public void onCollide(CollisionInfo collisionInfo);
+	public void onCollide(ICollide collider);
 	
 	default Bounds getBounds() {
-		// TODO: check copilot
 		return new Bounds(this.getPosition().x, this.getPosition().y, this.getSize().width, this.getSize().height);
 	}
 
