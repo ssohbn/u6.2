@@ -1,7 +1,8 @@
-package root.stuff.vehicles;
+package root.stuff.sprites.vehicles;
 import root.Sketch;
 import root.stuff.interfaces.ICollide;
 import root.stuff.interfaces.IDraw;
+import root.stuff.sprites.Sprite;
 import root.stuff.util.Color;
 import root.stuff.util.Position;
 import root.stuff.util.Size;
@@ -9,7 +10,7 @@ import root.stuff.util.Speed;
 /**
  * abstract vehicle class
  */
-public abstract class Vehicle implements IDraw, ICollide {
+public abstract class Vehicle extends Sprite implements IDraw, ICollide {
     protected Position position;
     protected Size size;
     protected Color color;
@@ -17,6 +18,7 @@ public abstract class Vehicle implements IDraw, ICollide {
 	protected Sketch sketch;
 
 	public Vehicle(Position position, Sketch sketch) {
+		super(position, sketch);
 		this.position = position;
 		this.sketch = sketch;
 	}

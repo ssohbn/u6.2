@@ -2,7 +2,7 @@ package root.stuff.tiles.Forest;
 
 import processing.core.PImage;
 import root.Sketch;
-import root.stuff.sprites.Tree;
+import root.stuff.sprites.trees.Tree;
 import root.stuff.util.Position;
 
 public class ForestTileTree extends ForestTile {

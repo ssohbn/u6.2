@@ -1,4 +1,4 @@
-package root.stuff.sprites;
+package root.stuff.sprites.trees;
 
 import root.Sketch;
 import root.stuff.util.Position;

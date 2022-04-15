@@ -1,4 +1,4 @@
-package root.stuff.vehicles;
+package root.stuff.sprites.vehicles;
 
 import processing.core.PApplet;
 import root.Sketch;

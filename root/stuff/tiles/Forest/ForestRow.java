@@ -4,9 +4,9 @@ import java.util.Random;
 
 import processing.core.PApplet;
 import root.Sketch;
-import root.stuff.sprites.DeadTree;
-import root.stuff.sprites.PointyTree;
-import root.stuff.sprites.Tree;
+import root.stuff.sprites.trees.DeadTree;
+import root.stuff.sprites.trees.PointyTree;
+import root.stuff.sprites.trees.Tree;
 import root.stuff.tiles.templates.TemplateRow;
 import root.stuff.util.Position;
 import root.stuff.util.Size;

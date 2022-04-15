@@ -1,4 +1,4 @@
-package root.stuff.vehicles;
+package root.stuff.sprites.vehicles;
 
 import root.Sketch;
 import root.stuff.util.Color;

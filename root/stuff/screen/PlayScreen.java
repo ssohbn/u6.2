@@ -6,6 +6,8 @@ import processing.core.PApplet;
 import root.Sketch;
 import root.stuff.interfaces.IDraw;
 import root.stuff.interfaces.IRow;
+import root.stuff.sprites.vehicles.Car;
+import root.stuff.sprites.vehicles.Player;
 import root.stuff.tiles.Biome;
 import root.stuff.tiles.Forest.ForestRow;
 import root.stuff.tiles.GrassLands.GrassLandsRow;
@@ -13,8 +15,6 @@ import root.stuff.tiles.Water.WaterRow;
 import root.stuff.util.Color;
 import root.stuff.util.Position;
 import root.stuff.util.Speed;
-import root.stuff.vehicles.Car;
-import root.stuff.vehicles.Player;
 
 public class PlayScreen extends Screen {
 

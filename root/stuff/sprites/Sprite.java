@@ -14,7 +14,7 @@ public abstract class Sprite implements IDraw, ICollide {
 	protected PImage image;
 	protected PApplet sketch;
 
-	public Sprite(Position position, Size size, Sketch sketch) {
+	public Sprite(Position position, Sketch sketch) {
 		this.position = position;
 		this.size = size;
 		this.sketch = sketch;
