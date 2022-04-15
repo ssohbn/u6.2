@@ -10,27 +10,23 @@ public abstract class TemplateRow implements IRow {
 	protected Size size;
 	protected Position position;
 	protected ITile[] tiles;
-	public TemplateRow(int y) {
+	public TemplateRow(int y, PApplet sketch) {
 		this.position = new Position(0, y); // start at top left always 
 		this.size = new Size(640, y);
 		this.tiles = new ITile[10];
-		genTiles(y);
+		genTiles(y, sketch);
 	}
 
-	protected void genTiles(int y) {
-		for (int i = 0; i < this.tiles.length; i++) {
-			// Stuff
-		}
-	}
+	protected abstract void genTiles(int y, PApplet sketch);
 
 	public Size getSize() {
 		return this.size;
 	}
 
 	@Override
-	public void draw(PApplet sketch) {
+	public void draw() {
 		for (ITile tile : this.tiles) {
-			tile.draw(sketch);
+			tile.draw();
 		}
 	}
 

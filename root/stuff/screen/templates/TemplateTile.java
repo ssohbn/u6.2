@@ -8,15 +8,17 @@ import root.stuff.util.Size;
 public abstract class TemplateTile implements ITile {
 	protected Position position;
 	protected Size size;
+	protected PApplet sketch;
 
-	public TemplateTile(Position position) {
+	public TemplateTile(Position position, PApplet sketch) {
 		this.position = position;
 		this.size = new Size(64, 64);
+		this.sketch = sketch;
 	}
 
 	@Override
-	public void draw(PApplet sketch) {
-		sketch.rect(position.x, position.y, size.width, size.height);
+	public void draw() {
+		this.sketch.rect(position.x, position.y, size.width, size.height);
 	}
 
 	@Override

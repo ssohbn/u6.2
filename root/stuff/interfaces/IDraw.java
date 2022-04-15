@@ -1,11 +1,10 @@
 package root.stuff.interfaces;
 
-import processing.core.PApplet;
 import root.stuff.util.Position;
 import root.stuff.util.Size;
 
 public interface IDraw {
-	public void draw(PApplet sketch);
+	public void draw();
 	public Position getPosition();
 	public Size getSize();
 	public void fall(int i);

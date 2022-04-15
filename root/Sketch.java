@@ -1,12 +1,12 @@
 package root;
 import processing.core.PApplet;
-import root.stuff.interfaces.IView;
+import root.stuff.screen.Screen;
 import root.stuff.screen.StartScreen;
 import root.stuff.util.Size;
 
 public class Sketch extends PApplet {
 
-	public static IView screen = new StartScreen();
+	public Screen screen = new StartScreen(this);
 	public static final Size SCREEN_SIZE = new Size(640, 640);
 
 	public void settings() {
@@ -18,21 +18,21 @@ public class Sketch extends PApplet {
 	}
   
 	public void keyPressed() {
-		Sketch.screen.handleKeydown(this, keyCode);
+		screen.handleKeydown(keyCode);
 	}
 
 	public void keyReleased() {
-		Sketch.screen.handleKeyup(this, keyCode);
+		screen.handleKeyup(keyCode);
 	}
 
 
   public void draw() {
-	screen.update(this);
+	screen.update();
 	background(255);
 	fill(255);
-	Sketch.screen.draw(this);
+	screen.draw();
 
 
-	Sketch.screen.hud(this);
+	screen.hud();
   }
 }

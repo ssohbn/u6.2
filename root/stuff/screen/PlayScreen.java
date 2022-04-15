@@ -3,9 +3,10 @@ package root.stuff.screen;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
-import root.stuff.interfaces.IView;
+import root.stuff.screen.Forest.ForestRow;
 import root.stuff.screen.GrassLands.GrassLandsRow;
 import root.stuff.screen.Water.WaterRow;
+import root.Sketch;
 import root.stuff.interfaces.IDraw;
 import root.stuff.interfaces.IRow;
 import root.stuff.util.Color;
@@ -14,7 +15,7 @@ import root.stuff.util.Speed;
 import root.stuff.vehicles.Car;
 import root.stuff.vehicles.Player;
 
-public class PlayScreen implements IView {
+public class PlayScreen extends Screen {
 
 	public static int score = 0;
 	Player lmq;
@@ -26,45 +27,46 @@ public class PlayScreen implements IView {
 	final int kUP 	= 2;
 	final int kDOWN 	= 3;
 	boolean firstFlag = false;
+	public ArrayList<IDraw> drawables = genStartingRows();
 
 
-	public PlayScreen() {
-		this.lmq 		  = new Player(new Position(320, 320));
+	public PlayScreen(Sketch sketch) {
+		super(sketch);
+		this.lmq 		  = new Player(new Position(320, 320), sketch);
 		drawables.add(lmq);
 
-		this.towMater 	  = new Car(new Position(300, 50), new Color(80, 20, 40));
+		this.towMater 	  = new Car(new Position(300, 50), new Color(80, 20, 40), sketch);
 		drawables.add(towMater);
 
-		this.sallyCarrera = new Car(new Position(200, 50), new Color(0, 0, 255));
+		this.sallyCarrera = new Car(new Position(200, 50), new Color(0, 0, 255), sketch);
 		drawables.add(sallyCarrera);
-		this.biome = Biome.GRASSLANDS;
+		this.biome = Biome.FOREST;
 	}
 
 
-	public static ArrayList<IDraw> drawables = genStartingRows();
 
-	static ArrayList<IDraw> genStartingRows() {
+	public ArrayList<IDraw> genStartingRows() {
 		ArrayList<IDraw> rows = new ArrayList<IDraw>();
 		for (int i = 0; i < 10; i++) {
-			rows.add(new GrassLandsRow(i * 64));
+			rows.add(new GrassLandsRow(i * 64, sketch) );
 		}
-		rows.add(new GrassLandsRow(-64));
+		rows.add(new GrassLandsRow(-64, sketch));
 		return rows;
 	}
 
 	@Override
-	public void draw(PApplet sketch) {
+	public void draw() {
 		for (IDraw drawable : drawables) {
-			drawable.draw(sketch);
+			drawable.draw();
 		}
 
-		lmq.draw(sketch);
-		sallyCarrera.draw(sketch);
-		towMater.draw(sketch);
+		lmq.draw();
+		sallyCarrera.draw();
+		towMater.draw();
 	}
 
 	@Override
-	public void update(PApplet sketch) {
+	public void update() {
 		score++;
 		
 		inputMove(lmq);
@@ -100,14 +102,15 @@ public class PlayScreen implements IView {
 	public void genNewRow() {
 		switch (this.biome) {
 			case GRASSLANDS:
-				drawables.add(new GrassLandsRow(-64));
+				drawables.add(new GrassLandsRow(-64, sketch));
 				break;
 			case DESERT:
 				break;
 			case FOREST:
+				drawables.add(new ForestRow(-64, sketch));
 				break;
 			case OCEAN:
-				drawables.add(new WaterRow(-64));
+				drawables.add(new WaterRow(-64, sketch));
 				break;
 			default:
 				break;
@@ -116,7 +119,7 @@ public class PlayScreen implements IView {
 	}
 
 	@Override
-	public void hud(PApplet sketch) {
+	public void hud() {
 		sketch.fill(0);
 		sketch.text("cool hud", 40, 240);
 		sketch.text("score: " + score, 40, 260);
@@ -135,7 +138,7 @@ public class PlayScreen implements IView {
 	}
 
 	@Override
-	public void handleKeydown(PApplet sketch, int keyCode) {
+	public void handleKeydown(int keyCode) {
 		if (keyCode == sketch.LEFT) {
 			keys[kLEFT] = true;
 			this.lmq.move(new Speed(-64, 0));
@@ -158,7 +161,7 @@ public class PlayScreen implements IView {
 	}
 
 	@Override
-	public void handleKeyup(PApplet sketch, int keyCode) {
+	public void handleKeyup(int keyCode) {
 		// TODO Auto-generated method stub
 		
 		if (keyCode == sketch.LEFT)

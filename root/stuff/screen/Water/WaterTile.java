@@ -6,13 +6,13 @@ import root.stuff.util.Position;
 
 public class WaterTile extends TemplateTile {
 
-	public WaterTile(Position position) {
-		super(position);
+	public WaterTile(Position position, PApplet sketch) {
+		super(position, sketch);
 	}
 
 	@Override
-	public void draw(PApplet sketch) {
+	public void draw() {
 		sketch.fill(0, 0, 180);
-		super.draw(sketch);
+		super.draw();
 	}
 }

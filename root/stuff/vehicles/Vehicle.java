@@ -14,6 +14,7 @@ public abstract class Vehicle implements IDraw, ICollide {
     protected Size size;
     protected Color color;
     protected Speed speed;
+	protected PApplet sketch;
 
 	public void fall(int y) {
 		this.position.y += y;
@@ -28,5 +29,5 @@ public abstract class Vehicle implements IDraw, ICollide {
      * draw da vehicle
      * @param sketch the PApplet instance to draw this vehicle on
      */
-    public abstract void draw(PApplet sketch);
+    public abstract void draw();
 }

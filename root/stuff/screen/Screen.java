@@ -3,41 +3,35 @@ package root.stuff.screen;
 import processing.core.PApplet;
 import root.Sketch;
 
-public class StartScreen extends Screen {
+public abstract class Screen {
+	protected Sketch sketch;
 
-	@Override
+	public Screen(Sketch sketch) {
+		this.sketch = sketch;
+	}
+
 	public void draw() {
 		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void hud() {
-		sketch.fill(0);
-		sketch.text("welcome to videogame click any key", 40, 240);
 		
 	}
 
-	@Override
-	public void handleKeydown(int keyCode) {
-		sketch.screen = new PlayScreen(sketch); 
+	public void update() {
+		// TODO Auto-generated method stub
+		
 	}
 
-	@Override
+	public void hud() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void handleKeydown(int keyCode) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public void handleKeyup(int keyCode) {
 		// TODO Auto-generated method stub
 		
 	}
-
-	public StartScreen(Sketch sketch) {
-		super(sketch);
-
-	}
-
-	
 }

@@ -11,10 +11,12 @@ public abstract class Sprite implements IDraw, ICollide {
 	protected Position position;
 	protected Size size;
 	protected PImage image;
+	protected PApplet sketch;
 
-	public Sprite(Position position, Size size) {
+	public Sprite(Position position, Size size, PApplet sketch) {
 		this.position = position;
 		this.size = size;
+		this.sketch = sketch;
 	}
 
 	@Override
@@ -23,8 +25,8 @@ public abstract class Sprite implements IDraw, ICollide {
 	}
 
 	@Override
-	public void draw(PApplet sketch) {
-		sketch.image(this.image, this.position.x, this.position.y);
+	public void draw() {
+		this.sketch.image(this.image, this.position.x, this.position.y);
 
 	}
 

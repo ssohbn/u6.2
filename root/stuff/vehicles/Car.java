@@ -15,10 +15,11 @@ public class Car extends Vehicle {
      * it go vroom :)
      * @param pos starting position of da vroom vroom car
      */
-    public Car(Position pos) {
+    public Car(Position pos, PApplet sketch) {
         this.position = pos;
         this.color = new Color(255, 0, 0);
 		this.new_constants();
+		this.sketch = sketch;
     }
 
     /**
@@ -26,7 +27,7 @@ public class Car extends Vehicle {
      * @param pos
      * @param color
      */
-    public Car(Position pos, Color color) {
+    public Car(Position pos, Color color, PApplet sketch) {
         this.position = pos;
         this.color = color;
 		this.new_constants();
@@ -47,7 +48,7 @@ public class Car extends Vehicle {
     }
 
     @Override
-    public void draw(PApplet sketch) {
+    public void draw() {
         int wheelSize = 16;
 
         sketch.pushMatrix();

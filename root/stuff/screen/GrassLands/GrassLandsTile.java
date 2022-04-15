@@ -6,14 +6,14 @@ import root.stuff.util.Position;
 
 public class GrassLandsTile extends TemplateTile {
 
-	public GrassLandsTile(Position position) {
-		super(position);
+	public GrassLandsTile(Position position, PApplet sketch) {
+		super(position, sketch);
 	}
 
 	@Override
-	public void draw(PApplet sketch) {
+	public void draw() {
 		sketch.fill(0, 180, 0);
-		super.draw(sketch);
+		super.draw();
 	}
 }
 	
