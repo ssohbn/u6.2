@@ -3,6 +3,7 @@ import java.rmi.server.Skeleton;
 import java.util.Random;
 
 import processing.core.PApplet;
+import root.Sketch;
 import root.stuff.screen.templates.TemplateRow;
 import root.stuff.util.Position;
 import root.stuff.util.Size;
@@ -10,7 +11,7 @@ import root.stuff.util.Size;
 public class ForestRow extends TemplateRow {
 
 	@Override
-	protected void genTiles(int y, PApplet sketch) {
+	protected void genTiles(int y, Sketch sketch) {
 		Random rand = new Random();
 		for (int i = 0; i < this.tiles.length; i++) {
 
@@ -26,7 +27,7 @@ public class ForestRow extends TemplateRow {
 		}
 	}
 
-	public ForestRow(int y, PApplet sketch) {
+	public ForestRow(int y, Sketch sketch) {
 		super(y, sketch);
 		//TODO Auto-generated constructor stub
 	}

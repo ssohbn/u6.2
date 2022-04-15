@@ -1,12 +1,13 @@
 package root.stuff.screen.Forest;
 
 import processing.core.PApplet;
+import root.Sketch;
 import root.stuff.screen.templates.TemplateTile;
 import root.stuff.util.Position;
 
 public class ForestTile	extends TemplateTile {
 
-	public ForestTile(Position position, PApplet sketch) {
+	public ForestTile(Position position, Sketch sketch) {
 		super(position, sketch);
 	}
 

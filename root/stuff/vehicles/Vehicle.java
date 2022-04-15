@@ -1,5 +1,5 @@
 package root.stuff.vehicles;
-import processing.core.PApplet;
+import root.Sketch;
 import root.stuff.interfaces.ICollide;
 import root.stuff.interfaces.IDraw;
 import root.stuff.util.Color;
@@ -14,7 +14,12 @@ public abstract class Vehicle implements IDraw, ICollide {
     protected Size size;
     protected Color color;
     protected Speed speed;
-	protected PApplet sketch;
+	protected Sketch sketch;
+
+	public Vehicle(Position position, Sketch sketch) {
+		this.position = position;
+		this.sketch = sketch;
+	}
 
 	public void fall(int y) {
 		this.position.y += y;
@@ -27,7 +32,6 @@ public abstract class Vehicle implements IDraw, ICollide {
     
     /**
      * draw da vehicle
-     * @param sketch the PApplet instance to draw this vehicle on
      */
     public abstract void draw();
 }

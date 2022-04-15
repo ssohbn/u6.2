@@ -1,6 +1,7 @@
 package root.stuff.vehicles;
 
 import processing.core.PApplet;
+import root.Sketch;
 import root.stuff.interfaces.ICollide;
 import root.stuff.util.Bounds;
 import root.stuff.util.Color;
@@ -13,10 +14,10 @@ public class Car extends Vehicle {
 	/**
      * simple vehicle
      * it go vroom :)
-     * @param pos starting position of da vroom vroom car
      */
-    public Car(Position pos, PApplet sketch) {
-        this.position = pos;
+    public Car(Position position, Sketch sketch) {
+		super(position, sketch);
+        this.position = position;
         this.color = new Color(255, 0, 0);
 		this.new_constants();
 		this.sketch = sketch;
@@ -24,11 +25,10 @@ public class Car extends Vehicle {
 
     /**
      * colorful vroom vroom
-     * @param pos
-     * @param color
      */
-    public Car(Position pos, Color color, PApplet sketch) {
-        this.position = pos;
+    public Car(Position position, Color color, Sketch sketch) {
+		super(position, sketch);
+        this.position = position;
         this.color = color;
 		this.new_constants();
 	}

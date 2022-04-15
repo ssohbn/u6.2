@@ -1,6 +1,6 @@
 package root.stuff.screen.templates;
 
-import processing.core.PApplet;
+import root.Sketch;
 import root.stuff.interfaces.ITile;
 import root.stuff.util.Position;
 import root.stuff.util.Size;
@@ -8,9 +8,9 @@ import root.stuff.util.Size;
 public abstract class TemplateTile implements ITile {
 	protected Position position;
 	protected Size size;
-	protected PApplet sketch;
+	protected Sketch sketch;
 
-	public TemplateTile(Position position, PApplet sketch) {
+	public TemplateTile(Position position, Sketch sketch) {
 		this.position = position;
 		this.size = new Size(64, 64);
 		this.sketch = sketch;
