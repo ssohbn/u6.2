@@ -15,7 +15,6 @@ public class Tree extends Sprite {
 	public Tree(Position position, PApplet sketch) {
 		super(position, new Size(64, 64), sketch);
 		this.image = sketch.loadImage("./root/resources/blobtree.png"); //TODO: i hope this works i had trouble with paths last time
-		System.out.println("image loaded: " + image.loaded);
 		this.image.resize(64, 64);
 	}
 }
