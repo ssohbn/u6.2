@@ -1,6 +1,7 @@
 package root.stuff.sprites;
 
 import processing.core.PApplet;
+import root.Sketch;
 import root.stuff.util.Position;
 import root.stuff.util.Size;
 
@@ -12,7 +13,7 @@ public class Tree extends Sprite {
 	 * @param size
 	 * @param sketch
 	 */
-	public Tree(Position position, PApplet sketch) {
+	public Tree(Position position, Sketch sketch) {
 		super(position, new Size(64, 64), sketch);
 		this.image = sketch.loadImage("./root/resources/blobtree.png"); //TODO: i hope this works i had trouble with paths last time
 		this.image.resize(64, 64);

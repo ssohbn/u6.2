@@ -5,6 +5,9 @@ import java.util.Random;
 import processing.core.PApplet;
 import root.Sketch;
 import root.stuff.screen.templates.TemplateRow;
+import root.stuff.sprites.DeadTree;
+import root.stuff.sprites.PointyTree;
+import root.stuff.sprites.Tree;
 import root.stuff.util.Position;
 import root.stuff.util.Size;
 
@@ -14,11 +17,16 @@ public class ForestRow extends TemplateRow {
 	protected void genTiles(int y, Sketch sketch) {
 		Random rand = new Random();
 		for (int i = 0; i < this.tiles.length; i++) {
-
+			Position position = new Position(i * 64, y);
 			// generate a random number between 1 and 3
-			int randomNum = rand.nextInt((3 - 1) + 1) + 1;
+			int randomNum = rand.nextInt((12 - 1) + 1) + 1;
 			if (randomNum == 1) {
-				tiles[i] = new ForestTileTree(new Position(i * 64, y), sketch);
+				tiles[i] = new ForestTileTree(position, sketch, new Tree(position, sketch));
+			} else if (randomNum == 2) {
+				tiles[i] = new ForestTileTree(position, sketch, new PointyTree(position, sketch));
+			} else if (randomNum == 3) {
+				tiles[i] = new ForestTileTree(position, sketch, new DeadTree(position, sketch));
+
 			} else {
 				tiles[i] = new ForestTile(new Position(i * 64, y), sketch);
 			}

@@ -27,7 +27,6 @@ public abstract class Sprite implements IDraw, ICollide {
 	@Override
 	public void draw() {
 		this.sketch.image(this.image, this.position.x, this.position.y);
-
 	}
 
 	@Override
