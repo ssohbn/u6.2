@@ -30,9 +30,7 @@ class Collisions {
 	}
 }
 
-public interface ICollide {
-
-	
+public interface ICollide extends IDraw {
 	default boolean colliding(ICollide collider) {
 		boolean result = false;
 		if (Collisions.withinBounds(this.getBounds(), collider.getBounds())) {

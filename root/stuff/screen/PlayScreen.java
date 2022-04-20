@@ -3,6 +3,7 @@ package root.stuff.screen;
 import java.util.ArrayList;
 
 import root.Sketch;
+import root.stuff.interfaces.ICollide;
 import root.stuff.interfaces.IDraw;
 import root.stuff.interfaces.IMove;
 import root.stuff.interfaces.IRow;
@@ -34,6 +35,7 @@ public class PlayScreen extends Screen {
 	boolean firstFlag = false;
 	public ArrayList<IDraw> drawables = genStartingRows();
 	public ArrayList<IMove> moveables = new ArrayList<IMove>();
+	public ArrayList<ICollide> collidables = new ArrayList<ICollide>();
 
 
 	public PlayScreen(Sketch sketch) {
@@ -44,11 +46,11 @@ public class PlayScreen extends Screen {
 		drawables.add(player);
 		moveables.add(player);
 
-		this.towMater 	  = new Car(new Position(300, 50), new Color(80, 20, 40), sketch);
+		this.towMater 	  = new Car(new Position(0, 64), new Color(80, 20, 40), sketch);
 		drawables.add(towMater);
 		moveables.add(towMater);
 
-		this.sallyCarrera = new Car(new Position(200, 50), new Color(0, 0, 255), sketch);
+		this.sallyCarrera = new Car(new Position(0, 128), new Color(0, 0, 255), sketch);
 		drawables.add(sallyCarrera);
 		moveables.add(sallyCarrera);
 
@@ -77,6 +79,15 @@ public class PlayScreen extends Screen {
 
 	@Override
 	public void update() {
+
+		for (ICollide collider : collidables) {
+			if (player.colliding(collider)) {
+				//TODO: die
+				System.out.println("player should probably die");
+			}
+		}
+
+
 		playerMovementUpdate();
 		for (IMove moveable : moveables) {
 			moveable.move();
@@ -86,16 +97,23 @@ public class PlayScreen extends Screen {
 		
 		boolean shouldGenNewRow = false;
 		ArrayList<IDraw> toRemove = new ArrayList<IDraw>();
+		ArrayList<ICollide> toRemoveCollidable = new ArrayList<ICollide>();
 
 		for (IDraw drawable : drawables) {
 
 			drawable.fall(2);
 
 			if (drawable.shouldPurgeOffscreen() ) {
-				if (drawable instanceof IRow) {
+				if (drawable instanceof IRow ) {
 					toRemove.add(drawable);
 					shouldGenNewRow = true;
 				}
+			}
+		}
+		
+		for ( ICollide collidable : collidables ) {
+			if (collidable.shouldPurgeOffscreen() ) {
+				toRemoveCollidable.add(collidable);
 			}
 		}
 
@@ -107,6 +125,12 @@ public class PlayScreen extends Screen {
 			System.out.println("Removing " + drawable);
 			drawables.remove(drawable);
 			System.out.println(drawables.size());
+		}
+
+		for ( ICollide collidable : toRemoveCollidable ) {
+			System.out.println("Removing " + collidable);
+			collidables.remove(collidable);
+			System.out.println(collidables.size());
 		}
 	}
 

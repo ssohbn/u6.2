@@ -1,6 +1,5 @@
 package root.stuff.tiles.Forest;
 
-import processing.core.PApplet;
 import root.Sketch;
 import root.stuff.tiles.templates.TemplateTile;
 import root.stuff.util.Position;

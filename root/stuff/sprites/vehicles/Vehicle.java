@@ -19,7 +19,7 @@ public abstract class Vehicle extends Sprite implements IDraw, ICollide, IMove {
 	protected Sketch sketch;
 
 	public Vehicle(Position position, Sketch sketch) {
-		super(position, sketch);
+		super(position, sketch, new Size(64, 64));
 		this.position = position;
 		this.sketch = sketch;
 	}

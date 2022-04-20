@@ -34,7 +34,7 @@ public class Car extends Vehicle {
 
 	private void new_constants() {
         this.size  = new Size(64, 48);
-        this.speed = new Speed(10, 0);
+        this.speed = new Speed(4, 0);
 	}
 
     @Override

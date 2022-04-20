@@ -14,7 +14,7 @@ public class Tree extends Sprite {
 	 * @param sketch
 	 */
 	public Tree(Position position, Sketch sketch) {
-		super(position, sketch);
+		super(position, sketch, new Size(64, 64));
 		this.image = sketch.loadImage("./root/resources/blobtree.png"); //TODO: i hope this works i had trouble with paths last time
 		this.image.resize(64, 64);
 	}
