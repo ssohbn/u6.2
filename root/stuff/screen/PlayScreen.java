@@ -16,6 +16,7 @@ import root.stuff.util.Color;
 import root.stuff.util.Position;
 import root.stuff.util.Speed;
 
+
 public class PlayScreen extends Screen {
 
 	public static int score = 0;
