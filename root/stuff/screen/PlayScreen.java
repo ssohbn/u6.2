@@ -45,8 +45,6 @@ public class PlayScreen extends Screen {
 		this.biome = Biome.FOREST;
 	}
 
-
-
 	public ArrayList<IDraw> genStartingRows() {
 		ArrayList<IDraw> rows = new ArrayList<IDraw>();
 		for (int i = 0; i < 10; i++) {
@@ -67,17 +65,21 @@ public class PlayScreen extends Screen {
 		towMater.draw();
 	}
 
+
 	@Override
 	public void update() {
+		playerMovementUpdate();
+
 		score++;
 		
-		inputMove(player);
 		sallyCarrera.move();
 		towMater.move();
+		
 		boolean shouldGenNewRow = false;
 		ArrayList<IDraw> toRemove = new ArrayList<IDraw>();
 
 		for (IDraw drawable : drawables) {
+
 			drawable.fall(2);
 
 			if (drawable.shouldPurgeOffscreen() ) {
@@ -124,56 +126,54 @@ public class PlayScreen extends Screen {
 		sketch.fill(0);
 		sketch.text("cool hud", 40, 240);
 		sketch.text("score: " + score, 40, 260);
-
-		
-	}
-
-	public void inputMove(Car car) {
-		// this leaves the awesome INTENDED FEATURE 
-		// where moving diagonally is faster
-		// if (keys[kLEFT]) this.lmq.move(new Speed(-64, 0));
-		// if (keys[kRIGHT]) this.lmq.move(new Speed(64, 0));
-		// if (keys[kDOWN]) this.lmq.move(new Speed(0, 64));
-		// if (keys[kUP]) this.lmq.move(new Speed(0, -64));
-
 	}
 
 	@Override
 	public void handleKeydown(int keyCode) {
 		if (keyCode == sketch.LEFT) {
 			keys[kLEFT] = true;
-			this.player.move(new Speed(-64, 0));
-		}
-
-		if (keyCode == sketch.UP) {
-			this.player.move(new Speed(0, -64));
+		} else if (keyCode == sketch.UP) {
 			keys[kUP] = true;
-		}
-
-		if (keyCode == sketch.RIGHT) {
+		} else if (keyCode == sketch.RIGHT) {
 			keys[kRIGHT] = true;
-			this.player.move(new Speed(64, 0));
-		}
-
-		if (keyCode == sketch.DOWN) {
+		} else if (keyCode == sketch.DOWN) {
 			keys[kDOWN] = true;
-			this.player.move(new Speed(0, 64));
 		}
 	}
 
 	@Override
 	public void handleKeyup(int keyCode) {
-		// TODO Auto-generated method stub
-		
 		if (keyCode == sketch.LEFT)
-		keys[kLEFT] = false;
+			keys[kLEFT] = false;
 		if (keyCode == sketch.UP)  
-		keys[kUP] = false;
+			keys[kUP] = false;
 		if (keyCode == sketch.RIGHT)
-		keys[kRIGHT] = false;
+			keys[kRIGHT] = false;
 		if (keyCode == sketch.DOWN)
-		keys[kDOWN] = false;
+			keys[kDOWN] = false;
 		}
 
+	public void playerMovementUpdate() {
+		System.out.println("--playerMovementUpdate--");
+		for (boolean keyPressed : keys) {
+			
+		}
+		if (keys[kLEFT]) {
+			this.player.move(new Speed(-64, 0));
+		}
+
+		if (keys[kRIGHT]) {
+			this.player.move(new Speed(64, 0));
+		}
+
+		if (keys[kUP]) {
+			this.player.move(new Speed(0, -64));
+		}
+
+		if (keys[kDOWN]) {
+			this.player.move(new Speed(0, 64));
+		}
+
+	}
 	
 }
