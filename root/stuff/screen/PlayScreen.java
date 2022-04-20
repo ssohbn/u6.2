@@ -135,20 +135,25 @@ public class PlayScreen extends Screen {
 	}
 
 	public void genNewRow() {
+		IRow row = null;
 		switch (this.biome) {
 			case GRASSLANDS:
-				drawables.add(new GrassLandsRow(-64, sketch));
+				row = new GrassLandsRow(-64, sketch);
 				break;
 			case DESERT:
 				break;
 			case FOREST:
-				drawables.add(new ForestRow(-64, sketch));
+				row = new ForestRow(-64, sketch);
 				break;
 			case OCEAN:
-				drawables.add(new WaterRow(-64, sketch));
+				row = new WaterRow(-64, sketch);
 				break;
 			default:
 				break;
+		}
+		drawables.add(row);
+		if (row instanceof ICollide) {
+			collidables.add((ICollide) row);
 		}
 	}
 

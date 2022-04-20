@@ -1,12 +1,13 @@
 package root.stuff.tiles.templates;
 
 import root.Sketch;
+import root.stuff.interfaces.ICollide;
 import root.stuff.interfaces.IRow;
 import root.stuff.interfaces.ITile;
 import root.stuff.util.Position;
 import root.stuff.util.Size;
 
-public abstract class TemplateRow implements IRow {
+public abstract class TemplateRow implements IRow, ICollide {
 	protected Size size;
 	protected Position position;
 	protected ITile[] tiles;
@@ -37,7 +38,6 @@ public abstract class TemplateRow implements IRow {
 		for (ITile tile : this.tiles) {
 			tile.fall(y);
 		}
-
 	}
 
 	@Override
@@ -48,5 +48,22 @@ public abstract class TemplateRow implements IRow {
 	@Override
 	public ITile[] getTiles() {
 		return tiles;
+	}
+
+	@Override
+	public void onCollide(ICollide collider) {
+		// do nothing
+	}
+
+	@Override
+	public boolean colliding(ICollide collider) {
+		for (ITile tile : this.tiles) {
+			if (tile instanceof ICollide) {
+				if (((ICollide) tile).colliding(collider)) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }
