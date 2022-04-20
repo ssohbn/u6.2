@@ -2,9 +2,9 @@ package root.stuff.screen;
 
 import java.util.ArrayList;
 
-import processing.core.PApplet;
 import root.Sketch;
 import root.stuff.interfaces.IDraw;
+import root.stuff.interfaces.IMove;
 import root.stuff.interfaces.IRow;
 import root.stuff.sprites.vehicles.Car;
 import root.stuff.sprites.vehicles.Player;
@@ -23,25 +23,35 @@ public class PlayScreen extends Screen {
 	Player player;
 	Car  towMater, sallyCarrera;
 	Biome biome;
+
 	boolean[] keys = new boolean[4];
+	boolean[] pkeys = new boolean[4];
+
 	final int kLEFT 	= 0;
 	final int kRIGHT  = 1;
 	final int kUP 	= 2;
 	final int kDOWN 	= 3;
 	boolean firstFlag = false;
 	public ArrayList<IDraw> drawables = genStartingRows();
+	public ArrayList<IMove> moveables = new ArrayList<IMove>();
 
 
 	public PlayScreen(Sketch sketch) {
 		super(sketch);
+
+		// this is kidna scuffed i think i hope it works :)
 		this.player = new Player(new Position(320, 320), sketch);
 		drawables.add(player);
+		moveables.add(player);
 
 		this.towMater 	  = new Car(new Position(300, 50), new Color(80, 20, 40), sketch);
 		drawables.add(towMater);
+		moveables.add(towMater);
 
 		this.sallyCarrera = new Car(new Position(200, 50), new Color(0, 0, 255), sketch);
 		drawables.add(sallyCarrera);
+		moveables.add(sallyCarrera);
+
 		this.biome = Biome.FOREST;
 	}
 
@@ -65,15 +75,14 @@ public class PlayScreen extends Screen {
 		towMater.draw();
 	}
 
-
 	@Override
 	public void update() {
 		playerMovementUpdate();
+		for (IMove moveable : moveables) {
+			moveable.move();
+		}
 
 		score++;
-		
-		sallyCarrera.move();
-		towMater.move();
 		
 		boolean shouldGenNewRow = false;
 		ArrayList<IDraw> toRemove = new ArrayList<IDraw>();
@@ -139,6 +148,8 @@ public class PlayScreen extends Screen {
 		} else if (keyCode == sketch.DOWN) {
 			keys[kDOWN] = true;
 		}
+
+		pkeys = keys;
 	}
 
 	@Override
@@ -154,24 +165,28 @@ public class PlayScreen extends Screen {
 		}
 
 	public void playerMovementUpdate() {
-		System.out.println("--playerMovementUpdate--");
-		for (boolean keyPressed : keys) {
-			
-		}
-		if (keys[kLEFT]) {
-			this.player.move(new Speed(-64, 0));
+		if (!keys[kLEFT] && !pkeys[kRIGHT] && !keys[kUP] && !pkeys[kDOWN]) {
+			this.player.setSpeed(new Speed(0, 0));
 		}
 
-		if (keys[kRIGHT]) {
-			this.player.move(new Speed(64, 0));
+		if (pkeys[kLEFT]) {
+			this.player.setSpeed(new Speed(-64, 0));
 		}
 
-		if (keys[kUP]) {
-			this.player.move(new Speed(0, -64));
+		if (pkeys[kRIGHT]) {
+			this.player.setSpeed(new Speed(64, 0));
 		}
 
-		if (keys[kDOWN]) {
-			this.player.move(new Speed(0, 64));
+		if (pkeys[kUP]) {
+			this.player.setSpeed(new Speed(0, -64));
+		}
+
+		if (pkeys[kDOWN]) {
+			this.player.setSpeed(new Speed(0, 64));
+		}
+
+		for (int i = 0; i < 4; i++) {
+			pkeys[i] = false;
 		}
 
 	}

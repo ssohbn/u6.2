@@ -1,6 +1,5 @@
 package root.stuff.sprites.vehicles;
 
-import processing.core.PApplet;
 import root.Sketch;
 import root.stuff.interfaces.ICollide;
 import root.stuff.util.Bounds;
@@ -66,6 +65,10 @@ public class Car extends Vehicle {
 
 	public Bounds getBounds() {
 		return new Bounds(this.position, this.size);
+	}
+
+	public void setSpeed(Speed speed) {
+		this.speed = speed;
 	}
 
 	@Override
