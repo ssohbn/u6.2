@@ -92,9 +92,8 @@ public class PlayScreen extends Screen {
 			drawable.fall(2);
 
 			if (drawable.shouldPurgeOffscreen() ) {
-				toRemove.add(drawable);
-
 				if (drawable instanceof IRow) {
+					toRemove.add(drawable);
 					shouldGenNewRow = true;
 				}
 			}
@@ -127,7 +126,6 @@ public class PlayScreen extends Screen {
 			default:
 				break;
 		}
-
 	}
 
 	@Override
@@ -188,7 +186,5 @@ public class PlayScreen extends Screen {
 		for (int i = 0; i < 4; i++) {
 			pkeys[i] = false;
 		}
-
 	}
-	
 }
