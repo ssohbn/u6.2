@@ -19,7 +19,7 @@ import root.stuff.util.Speed;
 public class PlayScreen extends Screen {
 
 	public static int score = 0;
-	Player lmq;
+	Player player;
 	Car  towMater, sallyCarrera;
 	Biome biome;
 	boolean[] keys = new boolean[4];
@@ -33,8 +33,8 @@ public class PlayScreen extends Screen {
 
 	public PlayScreen(Sketch sketch) {
 		super(sketch);
-		this.lmq 		  = new Player(new Position(320, 320), sketch);
-		drawables.add(lmq);
+		this.player = new Player(new Position(320, 320), sketch);
+		drawables.add(player);
 
 		this.towMater 	  = new Car(new Position(300, 50), new Color(80, 20, 40), sketch);
 		drawables.add(towMater);
@@ -61,7 +61,7 @@ public class PlayScreen extends Screen {
 			drawable.draw();
 		}
 
-		lmq.draw();
+		player.draw();
 		sallyCarrera.draw();
 		towMater.draw();
 	}
@@ -70,7 +70,7 @@ public class PlayScreen extends Screen {
 	public void update() {
 		score++;
 		
-		inputMove(lmq);
+		inputMove(player);
 		sallyCarrera.move();
 		towMater.move();
 		boolean shouldGenNewRow = false;
@@ -97,7 +97,6 @@ public class PlayScreen extends Screen {
 			drawables.remove(drawable);
 			System.out.println(drawables.size());
 		}
-
 	}
 
 	public void genNewRow() {
@@ -142,22 +141,22 @@ public class PlayScreen extends Screen {
 	public void handleKeydown(int keyCode) {
 		if (keyCode == sketch.LEFT) {
 			keys[kLEFT] = true;
-			this.lmq.move(new Speed(-64, 0));
+			this.player.move(new Speed(-64, 0));
 		}
 
 		if (keyCode == sketch.UP) {
-			this.lmq.move(new Speed(0, -64));
+			this.player.move(new Speed(0, -64));
 			keys[kUP] = true;
 		}
 
 		if (keyCode == sketch.RIGHT) {
 			keys[kRIGHT] = true;
-			this.lmq.move(new Speed(64, 0));
+			this.player.move(new Speed(64, 0));
 		}
 
 		if (keyCode == sketch.DOWN) {
 			keys[kDOWN] = true;
-			this.lmq.move(new Speed(0, 64));
+			this.player.move(new Speed(0, 64));
 		}
 	}
 
