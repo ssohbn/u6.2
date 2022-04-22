@@ -22,7 +22,7 @@ public class ForestTileTree extends ForestTile implements ICollide {
 
 	@Override
 	public boolean colliding(ICollide collider) {
-		return this.tree.colliding(collider);
+		return this.tree.posInBounds(collider);
 	}
 
 	@Override

@@ -25,12 +25,9 @@ public class ForestRow extends TemplateRow {
 				tiles[i] = new ForestTileTree(position, sketch, new PointyTree(position, sketch));
 			} else if (randomNum == 3) {
 				tiles[i] = new ForestTileTree(position, sketch, new DeadTree(position, sketch));
-
 			} else {
 				tiles[i] = new ForestTile(new Position(i * 64, y), sketch);
 			}
-			// thank you copilot
-
 		}
 	}
 

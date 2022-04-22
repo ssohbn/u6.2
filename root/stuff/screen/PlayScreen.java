@@ -80,10 +80,9 @@ public class PlayScreen extends Screen {
 	@Override
 	public void update() {
 
-		for (ICollide collider : collidables) {
-			if (player.colliding(collider)) {
-				//TODO: die
-				System.out.println("player should probably die");
+		for (ICollide collider : this.collidables) {
+			if (collider.colliding(player)) {
+				System.out.println("colliding");
 			}
 		}
 
@@ -100,7 +99,6 @@ public class PlayScreen extends Screen {
 		ArrayList<ICollide> toRemoveCollidable = new ArrayList<ICollide>();
 
 		for (IDraw drawable : drawables) {
-
 			drawable.fall(2);
 
 			if (drawable.shouldPurgeOffscreen() ) {
@@ -111,7 +109,7 @@ public class PlayScreen extends Screen {
 			}
 		}
 		
-		for ( ICollide collidable : collidables ) {
+		for ( ICollide collidable : this.collidables ) {
 			if (collidable.shouldPurgeOffscreen() ) {
 				toRemoveCollidable.add(collidable);
 			}
@@ -122,15 +120,14 @@ public class PlayScreen extends Screen {
 		}
 
 		for ( IDraw drawable : toRemove) {
-			System.out.println("Removing " + drawable);
+			System.out.println("removing drawable");
 			drawables.remove(drawable);
 			System.out.println(drawables.size());
 		}
 
 		for ( ICollide collidable : toRemoveCollidable ) {
-			System.out.println("Removing " + collidable);
-			collidables.remove(collidable);
-			System.out.println(collidables.size());
+			System.out.println("removing collidable");
+			this.collidables.remove(collidable);
 		}
 	}
 
@@ -153,7 +150,8 @@ public class PlayScreen extends Screen {
 		}
 		drawables.add(row);
 		if (row instanceof ICollide) {
-			collidables.add((ICollide) row);
+			this.collidables.add((ICollide) row);
+			System.out.println("added new collidable\n - size: " + this.collidables.size());
 		}
 	}
 

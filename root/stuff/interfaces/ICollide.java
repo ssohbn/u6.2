@@ -35,19 +35,23 @@ public interface ICollide extends IDraw {
 		boolean result = false;
 		if (Collisions.withinBounds(this.getBounds(), collider.getBounds())) {
 			result = true;
-
 			this.onCollide(collider);
 			collider.onCollide(this);
-
 		} 
 
 		return result;
 	}
 
+	default boolean posInBounds(ICollide collider) {
+		Position center = new Position(this.getPosition().x + this.getSize().width/2, this.getPosition().y + this.getSize().height/2);
+		return Collisions.posInBounds(center, collider.getBounds());
+	}
+
+
 	public void onCollide(ICollide collider);
 	
 	default Bounds getBounds() {
-		return new Bounds(this.getPosition().x, this.getPosition().y, this.getSize().width, this.getSize().height);
+		return new Bounds(this.getPosition(), this.getSize());
 	}
 
 	public Position getPosition();
