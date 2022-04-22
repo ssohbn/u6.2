@@ -2,7 +2,6 @@ package root.stuff.tiles.Forest;
 
 import java.util.Random;
 
-import processing.core.PApplet;
 import root.Sketch;
 import root.stuff.sprites.trees.DeadTree;
 import root.stuff.sprites.trees.PointyTree;

@@ -1,6 +1,5 @@
 package root.stuff.screen;
 
-import processing.core.PApplet;
 import root.Sketch;
 
 public class StartScreen extends Screen {

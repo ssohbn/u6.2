@@ -11,7 +11,7 @@ public class GrassLandsTile extends TemplateTile {
 	public GrassLandsTile(Position position, Sketch sketch) {
 		super(position, sketch);
 
-		this.grass = sketch.loadImage("./root/resources/grass.png"); //TODO: i hope this works i had trouble with paths last time
+		this.grass = sketch.loadImage("./root/resources/grass.png"); 
 		this.grass.resize(64, 64);
 	}
 

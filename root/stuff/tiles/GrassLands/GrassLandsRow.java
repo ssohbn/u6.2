@@ -1,6 +1,5 @@
 package root.stuff.tiles.GrassLands;
 
-import processing.core.PApplet;
 import root.Sketch;
 import root.stuff.tiles.templates.TemplateRow;
 import root.stuff.util.Position;

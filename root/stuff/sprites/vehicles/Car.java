@@ -83,6 +83,6 @@ public class Car extends Vehicle {
 
 	@Override
 	public void onCollide(ICollide collider) {
-		// TODO: die
+		System.out.println("car collided with something");
 	}
 }
