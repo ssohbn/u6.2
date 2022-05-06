@@ -19,7 +19,6 @@ import root.stuff.util.Speed;
 
 
 public class PlayScreen extends Screen {
-
 	public static int score = 0;
 	Player player;
 	Car  towMater, sallyCarrera;
@@ -40,6 +39,7 @@ public class PlayScreen extends Screen {
 
 	public PlayScreen(Sketch sketch) {
 		super(sketch);
+		this.score = 0;
 
 		// this is kidna scuffed i think i hope it works :)
 		this.player = new Player(new Position(320, 320), sketch);
