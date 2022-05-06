@@ -11,6 +11,7 @@ public class scoreHelper {
 		try {
 			FileWriter writer = new FileWriter("scores.txt");
 			writer.write("scores");
+			writer.close();
 
 		} catch (IOException e) {
 			e.printStackTrace();
