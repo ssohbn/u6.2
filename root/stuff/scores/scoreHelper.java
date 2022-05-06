@@ -6,17 +6,20 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class scoreHelper {
+	File init() {
+		return new File("scores.txt");
 
-	public static void submitScore() {
+	}
+	public static void submitScore(int score) {
 		try {
 			FileWriter writer = new FileWriter("scores.txt");
-			writer.write("scores");
+			writer.write(""+score);
 			writer.close();
+			System.out.println("wrote scores");
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public static ArrayList<Integer> getScores() {
