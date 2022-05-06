@@ -6,13 +6,11 @@ public class StartScreen extends Screen {
 
 	@Override
 	public void draw() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
@@ -29,7 +27,6 @@ public class StartScreen extends Screen {
 
 	@Override
 	public void handleKeyup(int keyCode) {
-		// TODO Auto-generated method stub
 		
 	}
 

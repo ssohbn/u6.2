@@ -82,7 +82,7 @@ public class PlayScreen extends Screen {
 
 		for (ICollide collider : this.collidables) {
 			if (collider.colliding(player)) {
-				System.out.println("colliding");
+				sketch.screen = new EndScreen(this.sketch, score);
 			}
 		}
 
