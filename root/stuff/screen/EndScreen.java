@@ -42,6 +42,4 @@ public class EndScreen extends Screen {
 	public void handleKeyup(int keyCode) {
 		
 	}
-	
-	
 }
