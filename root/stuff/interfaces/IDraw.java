@@ -4,6 +4,7 @@ import root.stuff.util.Position;
 import root.stuff.util.Size;
 
 public interface IDraw {
+	/** defines how we interact and draw drawable object */
 	public void draw();
 	public Position getPosition();
 	public Size getSize();
