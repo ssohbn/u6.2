@@ -4,7 +4,9 @@ import root.stuff.util.Position;
 import root.stuff.util.Size;
 
 class Collisions {
-
+ /** 
+	some collision methods for our silly willy collider
+	*/
 	public static boolean withinBounds(Bounds bounds1, Bounds bounds) {
 		boolean result = false;
         if (
@@ -31,6 +33,7 @@ class Collisions {
 }
 
 public interface ICollide extends IDraw {
+	/** defines basic traits of a collider */
 	default boolean colliding(ICollide collider) {
 		boolean result = false;
 		if (Collisions.withinBounds(this.getBounds(), collider.getBounds())) {
