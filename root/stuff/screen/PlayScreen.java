@@ -19,28 +19,29 @@ import root.stuff.util.Speed;
 
 
 public class PlayScreen extends Screen {
-	public static int score = 0;
+	public static int score = 0; // TODO: does this need to be static or public?
 	Player player;
 	Car  towMater, sallyCarrera;
 	Biome biome;
 
+	/* keys */
 	boolean[] keys = new boolean[4];
 	boolean[] pkeys = new boolean[4];
-
 	final int kLEFT 	= 0;
 	final int kRIGHT  = 1;
 	final int kUP 	= 2;
 	final int kDOWN 	= 3;
-	boolean firstFlag = false;
+	
 	public ArrayList<IDraw> drawables = genStartingRows();
 	public ArrayList<IMove> moveables = new ArrayList<IMove>();
 	public ArrayList<ICollide> collidables = new ArrayList<ICollide>();
-	int rowsGenerated;
+	int rowsGenerated = 0;
 
 
 	public PlayScreen(Sketch sketch) {
 		super(sketch);
 		this.score = 0;
+		this.rowsGenerated = 0;
 
 		// this is kidna scuffed i think i hope it works :)
 		this.player = new Player(new Position(320, 320), sketch);
@@ -86,21 +87,17 @@ public class PlayScreen extends Screen {
 
 	@Override
 	public void update() {
-
 		for (ICollide collider : this.collidables) {
 			if (collider.colliding(player)) {
 				sketch.screen = new EndScreen(this.sketch, score);
 			}
 		}
 
-
 		playerMovementUpdate();
 		for (IMove moveable : moveables) {
 			moveable.move();
 		}
 
-		score++;
-		
 		boolean shouldGenNewRow = false;
 		ArrayList<IDraw> toRemove = new ArrayList<IDraw>();
 		ArrayList<ICollide> toRemoveCollidable = new ArrayList<ICollide>();
@@ -122,29 +119,32 @@ public class PlayScreen extends Screen {
 			}
 		}
 
-		if ( rowsGenerated % 10 == 0) {
-			this.biome = Biome.OCEAN;
-		}
-
-		if (shouldGenNewRow) {
-			
-			genNewRow();
-			rowsGenerated++;
-			if ( this.biome == Biome.OCEAN) {
-				this.biome = randomBiome();
-			}
-		}
-
+		/* removals */
+		// TODO: duplicated code
 		for ( IDraw drawable : toRemove) {
 			System.out.println("removing drawable");
 			drawables.remove(drawable);
-			System.out.println(drawables.size());
 		}
 
 		for ( ICollide collidable : toRemoveCollidable ) {
 			System.out.println("removing collidable");
 			this.collidables.remove(collidable);
 		}
+
+		/* row generation */
+		if ( rowsGenerated % 10 == 0) {
+			this.biome = Biome.OCEAN;
+		}
+
+		if (shouldGenNewRow) {	
+			genNewRow();
+			rowsGenerated++;
+			if ( this.biome == Biome.OCEAN) {
+				this.biome = randomBiome();
+			}
+		}
+		
+		score++;
 	}
 
 	public void genNewRow() {
