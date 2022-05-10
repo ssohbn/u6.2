@@ -35,6 +35,7 @@ public class PlayScreen extends Screen {
 	public ArrayList<IDraw> drawables = genStartingRows();
 	public ArrayList<IMove> moveables = new ArrayList<IMove>();
 	public ArrayList<ICollide> collidables = new ArrayList<ICollide>();
+	int rowsGenerated;
 
 
 	public PlayScreen(Sketch sketch) {
@@ -77,6 +78,12 @@ public class PlayScreen extends Screen {
 		towMater.draw();
 	}
 
+	Biome randomBiome() {
+		// TODO: actual random
+		return Biome.FOREST;
+	}
+
+
 	@Override
 	public void update() {
 
@@ -115,8 +122,17 @@ public class PlayScreen extends Screen {
 			}
 		}
 
+		if ( rowsGenerated % 10 == 0) {
+			this.biome = Biome.OCEAN;
+		}
+
 		if (shouldGenNewRow) {
+			
 			genNewRow();
+			rowsGenerated++;
+			if ( this.biome == Biome.OCEAN) {
+				this.biome = randomBiome();
+			}
 		}
 
 		for ( IDraw drawable : toRemove) {
