@@ -6,6 +6,7 @@ import root.stuff.interfaces.ICollide;
 import root.stuff.util.Position;
 import root.stuff.util.Size;
 
+/** an object with collisions */
 public abstract class Sprite implements ICollide {
 	protected Position position;
 	protected Size size;
