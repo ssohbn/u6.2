@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ScoreHelper {
 	static File init() {
@@ -29,6 +30,18 @@ public class ScoreHelper {
 	}
 
 	public static ArrayList<Integer> getScores() {
-		return null;
+		ArrayList<Integer> scores = new ArrayList<Integer>();
+		try {
+			Scanner scanner = new Scanner(init());
+			while (scanner.hasNextLine()) {
+				int data = scanner.nextInt();
+				scores.add(data);
+			}
+
+			scanner.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return scores;
 	}
 }
