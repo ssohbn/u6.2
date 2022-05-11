@@ -23,7 +23,7 @@ public class EndScreen extends Screen {
 
 	@Override
 	public void update() {
-		if ( sketch.millis() - start > (3 * 1000) ) {
+		if ( sketch.millis() - start > (2 * 1000) ) {
 			ScoreHelper.submitScore(score);
 			sketch.screen = new StartScreen(sketch);
 		}
