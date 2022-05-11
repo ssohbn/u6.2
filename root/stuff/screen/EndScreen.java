@@ -1,6 +1,7 @@
 package root.stuff.screen;
 
 import root.Sketch;
+import root.stuff.scores.ScoreHelper;
 
 public class EndScreen extends Screen {
 	int start;
@@ -19,7 +20,8 @@ public class EndScreen extends Screen {
 
 	@Override
 	public void update() {
-		if ( sketch.millis() - start > (5 * 1000) ) {
+		if ( sketch.millis() - start > (3 * 1000) ) {
+			ScoreHelper.submitScore(score);
 			sketch.screen = new StartScreen(sketch);
 		}
 	}
