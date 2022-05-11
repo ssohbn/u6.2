@@ -1,6 +1,7 @@
 package root.stuff.screen;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import root.Sketch;
 import root.stuff.scores.ScoreHelper;
@@ -39,11 +40,12 @@ public class EndScreen extends Screen {
 
 	void displayScores() {
 		ArrayList<Integer> scores = ScoreHelper.getScores();
+		Collections.reverse(scores);
+		sketch.text("recent scores", 80, 20);
 
 		for ( int i = 0; i < scores.size(); i++ ) {
-			sketch.text(scores.get(i), 0, i*20);
+			sketch.text(scores.get(i), 80, 40 + i*18);
 		}
-
 	}
 
 	@Override
