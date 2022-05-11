@@ -10,7 +10,6 @@ public class ScoreHelper {
 		File myFile = new File("./scores.txt");
 		try {
 			myFile.createNewFile();
-			System.out.println("created file");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -31,10 +30,11 @@ public class ScoreHelper {
 
 	public static ArrayList<Integer> getScores() {
 		ArrayList<Integer> scores = new ArrayList<Integer>();
+
 		try {
 			Scanner scanner = new Scanner(init());
 			while (scanner.hasNextLine()) {
-				int data = scanner.nextInt();
+				Integer data = Integer.valueOf( scanner.nextLine().strip() );
 				scores.add(data);
 			}
 
@@ -42,6 +42,7 @@ public class ScoreHelper {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 		return scores;
 	}
 }

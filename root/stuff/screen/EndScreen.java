@@ -39,8 +39,9 @@ public class EndScreen extends Screen {
 
 	void displayScores() {
 		ArrayList<Integer> scores = ScoreHelper.getScores();
+
 		for ( int i = 0; i < scores.size(); i++ ) {
-			sketch.text(score, 0, i*20);
+			sketch.text(scores.get(i), 0, i*20);
 		}
 
 	}
