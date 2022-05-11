@@ -6,9 +6,10 @@ import java.util.ArrayList;
 
 public class scoreHelper {
 	static File init() {
-		File myFile = new File("scores.txt");
+		File myFile = new File("./scores.txt");
 		try {
 			myFile.createNewFile();
+			System.out.println("created file");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
