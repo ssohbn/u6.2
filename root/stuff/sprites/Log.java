@@ -3,10 +3,13 @@ package root.stuff.sprites;
 import root.Sketch;
 import root.stuff.util.Position;
 import root.stuff.util.Size;
+import root.stuff.util.Speed;
 
 public class Log extends Sprite {
-	public Log(Position position, Sketch sketch, Size size) {
+	Speed speed;
+	public Log(Position position, Sketch sketch, Size size, Speed speed) {
 		super(position, sketch, size, sketch.loadImage("./root/resources/log.png"));
+		this.speed = speed;
 	}
 
 	boolean bob = true; 
@@ -24,6 +27,7 @@ public class Log extends Sprite {
 	public void fall(int i) {
 		super.fall(i);
 		this.bob();
+		this.position.add(this.speed);
 	}
 	
 }

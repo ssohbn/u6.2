@@ -21,7 +21,7 @@ public abstract class Sprite implements ICollide {
 
 	public Sprite(Position position, Sketch sketch, Size size, PImage image) {
 		this(position, sketch, size);
-		this.image.resize(64, 64);
+		this.image.resize(size.width, size.height);
 		this.image = image;
 	}
 
