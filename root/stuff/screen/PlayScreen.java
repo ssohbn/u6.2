@@ -83,13 +83,13 @@ public class PlayScreen extends Screen {
 
 	Biome randomBiome() {
 		Random r = new Random();
-		int randomNum = r.nextInt(3);
+		int randomNum = r.nextInt(2);
 		switch (randomNum) {
 			case 0:
 				return Biome.FOREST;
 			case 1:
 				return Biome.DESERT;
-			default:
+			default: // should never run this
 				return Biome.GRASSLANDS;
 		}
 	}
