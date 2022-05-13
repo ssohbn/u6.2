@@ -1,11 +1,14 @@
 package root.stuff.screen;
 
+
 import processing.core.PFont;
 import root.Sketch;
 
 
 public class StartScreen extends Screen {
 	
+	PFont score;
+
 	@Override
 	public void draw() {
 
@@ -18,12 +21,12 @@ public class StartScreen extends Screen {
 
 	@Override
 	public void hud() {
-		
+	
 		sketch.background(0);
-		sketch.textAlign(sketch.TOP, sketch.CENTER);
 		sketch.fill(0, 255, 0);
 		sketch.textSize(50);
-		sketch.text("Press Any Key to Start", 20, 20);
+		sketch.text("Press Any Key to Start", 320, 320);
+		sketch.textAlign(sketch.CENTER, sketch.TOP);
 	}
 
 	@Override
