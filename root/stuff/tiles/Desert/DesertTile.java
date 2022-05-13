@@ -12,7 +12,7 @@ public class DesertTile	extends TemplateTile {
 
 	@Override
 	public void draw() {
-		this.sketch.fill(50, 180, 50);
+		this.sketch.fill(230,230, 50);
 		super.draw();
 	}
 

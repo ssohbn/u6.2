@@ -7,22 +7,22 @@ import root.stuff.sprites.trees.Tree;
 import root.stuff.util.Position;
 
 public class DesertTileObstacle extends DesertTile implements ICollide {
-	Tree tree;
+	Tree thing;
 	PImage image;
 	public DesertTileObstacle(Position position, Sketch sketch, Tree tree) {
 		super(position, sketch);
-		this.tree = tree;
+		this.thing = tree;
 	}
 
 	@Override
 	public void draw() {
 		super.draw();
-		tree.draw(); // woohoo i should have a tree now
+		thing.draw(); // woohoo i should have a tree now
 	}
 
 	@Override
 	public boolean colliding(ICollide collider) {
-		return this.tree.posInBounds(collider);
+		return this.thing.posInBounds(collider);
 	}
 
 	@Override
