@@ -89,8 +89,6 @@ public class PlayScreen extends Screen {
 				return Biome.FOREST;
 			case 1:
 				return Biome.DESERT;
-			case 2:
-				return Biome.OCEAN;
 			default:
 				return Biome.GRASSLANDS;
 		}
