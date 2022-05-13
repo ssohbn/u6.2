@@ -27,8 +27,8 @@ public class PlayScreen extends Screen {
 	Biome biome;
 
 	/* keys */
-	boolean[] keys = new boolean[4];
-	boolean[] pkeys = new boolean[4];
+	boolean[] keys      = new boolean[4];
+	boolean[] pkeys     = new boolean[4];
 	final int kLEFT 	= 0;
 	final int kRIGHT    = 1;
 	final int kUP 	    = 2;
