@@ -21,7 +21,7 @@ import root.stuff.util.Speed;
 
 
 public class PlayScreen extends Screen {
-	public static int score = 0; // TODO: does this need to be static or public?
+	public static int score = 0;
 	Player player;
 	Car  towMater, sallyCarrera;
 	Biome biome;
