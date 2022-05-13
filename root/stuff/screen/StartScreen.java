@@ -23,7 +23,7 @@ public class StartScreen extends Screen {
 		sketch.textAlign(sketch.TOP, sketch.CENTER);
 		sketch.fill(0, 255, 0);
 		sketch.textSize(50);
-		sketch.text("Press Any Key to Start", sketch.textAlign(sketch.TOP, sketch.CENTER));
+		sketch.text("Press Any Key to Start", 20, 20);
 		
 	}
 
