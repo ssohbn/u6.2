@@ -28,14 +28,20 @@ public class ScoreHelper {
 		}
 	}
 
+	/**
+	 * @return the most recent 10 scores
+	 */
 	public static ArrayList<Integer> getScores() {
+	
 		ArrayList<Integer> scores = new ArrayList<Integer>();
 
 		try {
 			Scanner scanner = new Scanner(init());
-			while (scanner.hasNextLine()) {
+			int i = 0;
+			while (scanner.hasNextLine() && i < 10) {
 				Integer data = Integer.valueOf( scanner.nextLine().strip() );
 				scores.add(data);
+				i++;
 			}
 
 			scanner.close();
