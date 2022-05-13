@@ -1,6 +1,7 @@
 package root.stuff.screen;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import root.Sketch;
 import root.stuff.interfaces.ICollide;
@@ -10,6 +11,7 @@ import root.stuff.interfaces.IRow;
 import root.stuff.sprites.vehicles.Car;
 import root.stuff.sprites.vehicles.Player;
 import root.stuff.tiles.Biome;
+import root.stuff.tiles.Desert.DesertRow;
 import root.stuff.tiles.Forest.ForestRow;
 import root.stuff.tiles.GrassLands.GrassLandsRow;
 import root.stuff.tiles.Water.WaterRow;
@@ -80,10 +82,17 @@ public class PlayScreen extends Screen {
 	}
 
 	Biome randomBiome() {
-		// TODO: actual random
-		return Biome.FOREST;
+		Random r = new Random();
+		int randomNum = r.nextInt(2);
+		switch (randomNum) {
+			case 0:
+				return Biome.FOREST;
+			case 1:
+				return Biome.DESERT;
+			default: // should never run this
+				return Biome.GRASSLANDS;
+		}
 	}
-
 
 	@Override
 	public void update() {
@@ -154,6 +163,7 @@ public class PlayScreen extends Screen {
 				row = new GrassLandsRow(-64, sketch);
 				break;
 			case DESERT:
+			row = new DesertRow(-64, sketch);
 				break;
 			case FOREST:
 				row = new ForestRow(-64, sketch);
