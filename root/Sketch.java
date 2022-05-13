@@ -14,6 +14,8 @@ public class Sketch extends PApplet {
 
 	public void settings() {
 		size(640, 640);
+		this.width  = 640;
+		this.height = 640;
 	}
 
 	public void setup() {

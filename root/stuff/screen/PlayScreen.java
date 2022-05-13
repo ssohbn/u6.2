@@ -8,6 +8,8 @@ import root.stuff.interfaces.ICollide;
 import root.stuff.interfaces.IDraw;
 import root.stuff.interfaces.IMove;
 import root.stuff.interfaces.IRow;
+import root.stuff.sprites.Log;
+import root.stuff.sprites.trees.Tree;
 import root.stuff.sprites.vehicles.Car;
 import root.stuff.sprites.vehicles.Player;
 import root.stuff.tiles.Biome;
@@ -96,10 +98,22 @@ public class PlayScreen extends Screen {
 
 	@Override
 	public void update() {
+		boolean touchingLog = false;
+		boolean touchingWater = false;
 		for (ICollide collider : this.collidables) {
-			if (collider.colliding(player)) {
+			if (!collider.colliding(player)) continue;
+
+			if (collider instanceof Tree ) {
 				sketch.screen = new EndScreen(this.sketch, score);
+			} else if (collider instanceof Log ) {
+				touchingLog = true;
+			} else if (collider instanceof WaterRow ) {
+				touchingWater = true;
 			}
+		}
+		
+		if ( touchingWater && !touchingLog ) {
+			sketch.screen = new EndScreen(this.sketch, score);
 		}
 
 		playerMovementUpdate();
@@ -142,13 +156,13 @@ public class PlayScreen extends Screen {
 
 		/* row generation */
 		if ( rowsGenerated % 10 == 0) {
-			this.biome = Biome.OCEAN;
+			this.biome = Biome.WATER;
 		}
 
 		if (shouldGenNewRow) {	
 			genNewRow();
 			rowsGenerated++;
-			if ( this.biome == Biome.OCEAN) {
+			if ( this.biome == Biome.WATER) {
 				this.biome = randomBiome();
 			}
 		}
@@ -168,7 +182,7 @@ public class PlayScreen extends Screen {
 			case FOREST:
 				row = new ForestRow(-64, sketch);
 				break;
-			case OCEAN:
+			case WATER:
 				row = new WaterRow(-64, sketch);
 				break;
 			default:

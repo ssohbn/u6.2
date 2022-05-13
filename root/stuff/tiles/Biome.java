@@ -4,5 +4,5 @@ public enum Biome {
 	GRASSLANDS,
 	FOREST,
 	DESERT,
-	OCEAN,
+	WATER,
 }

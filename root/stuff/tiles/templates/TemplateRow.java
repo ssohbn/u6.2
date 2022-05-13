@@ -59,7 +59,7 @@ public abstract class TemplateRow implements IRow, ICollide {
 	public boolean colliding(ICollide collider) {
 		for (ITile tile : tiles) {
 			if (tile instanceof ICollide) {
-				if (((ICollide) tile).colliding(collider)) {
+				if (((ICollide) tile).posInBounds(collider)) {
 					System.out.println("colliding");
 					return true;
 				}
