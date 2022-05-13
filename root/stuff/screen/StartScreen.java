@@ -1,9 +1,11 @@
 package root.stuff.screen;
 
+import processing.core.PFont;
 import root.Sketch;
 
-public class StartScreen extends Screen {
 
+public class StartScreen extends Screen {
+	
 	@Override
 	public void draw() {
 
@@ -11,12 +13,17 @@ public class StartScreen extends Screen {
 
 	@Override
 	public void update() {
+		
 	}
 
 	@Override
 	public void hud() {
-		sketch.fill(0);
-		sketch.text("welcome to videogame click any key", 40, 240);
+		
+		sketch.background(0);
+		sketch.textAlign(sketch.TOP, sketch.CENTER);
+		sketch.fill(0, 255, 0);
+		sketch.textSize(50);
+		sketch.text("Press Any Key to Start", sketch.textAlign(sketch.TOP, sketch.CENTER));
 		
 	}
 
@@ -32,6 +39,6 @@ public class StartScreen extends Screen {
 
 	public StartScreen(Sketch sketch) {
 		super(sketch);
-
+	
 	}
 }
