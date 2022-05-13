@@ -16,7 +16,7 @@ public class DesertRow extends TemplateRow {
 		Random rand = new Random();
 		for (int i = 0; i < this.tiles.length; i++) {
 			Position position = new Position(i * 64, y);
-			int randomNum = rand.nextInt(8);
+			int randomNum = rand.nextInt(18)+1;
 			if (randomNum == 1) {
 				tiles[i] = new DesertTileObstacle(position, sketch, new Cactus(position, sketch));
 			} else if (randomNum == 2) {

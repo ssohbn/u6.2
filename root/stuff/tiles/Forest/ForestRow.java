@@ -18,7 +18,7 @@ public class ForestRow extends TemplateRow {
 		for (int i = 0; i < this.tiles.length; i++) {
 			Position position = new Position(i * 64, y);
 			// generate a random number between 1 and 3
-			int randomNum = rand.nextInt(8)+1;
+			int randomNum = rand.nextInt(12)+1;
 			if (randomNum == 1) {
 				tiles[i] = new ForestTileTree(position, sketch, new Tree(position, sketch));
 			} else if (randomNum == 2) {
