@@ -183,9 +183,11 @@ public class PlayScreen extends Screen {
 
 	@Override
 	public void hud() {
-		sketch.fill(0);
-		sketch.text("cool hud", 40, 240);
-		sketch.text("score: " + score, 40, 260);
+		
+		sketch.fill(0, 0, 0);
+		sketch.textSize(40);
+		sketch.text("Cool HUD",80, 1);
+		sketch.text("Score: " + score, 100, 30);
 	}
 
 	@Override
