@@ -32,7 +32,6 @@ public class ScoreHelper {
 	 * @return the most recent 10 scores
 	 */
 	public static ArrayList<Integer> getScores() {
-	
 		ArrayList<Integer> scores = new ArrayList<Integer>();
 
 		try {
@@ -43,7 +42,6 @@ public class ScoreHelper {
 				scores.add(data);
 				i++;
 			}
-
 			scanner.close();
 		} catch (IOException e) {
 			e.printStackTrace();
