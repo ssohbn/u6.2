@@ -24,7 +24,6 @@ public class StartScreen extends Screen {
 		sketch.fill(0, 255, 0);
 		sketch.textSize(50);
 		sketch.text("Press Any Key to Start", 20, 20);
-		
 	}
 
 	@Override

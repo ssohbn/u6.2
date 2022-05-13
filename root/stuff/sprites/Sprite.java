@@ -19,6 +19,12 @@ public abstract class Sprite implements ICollide {
 		this.sketch = sketch;
 	}
 
+	public Sprite(Position position, Sketch sketch, Size size, PImage image) {
+		this(position, sketch, size);
+		this.image.resize(64, 64);
+		this.image = image;
+	}
+
 	@Override
 	public Size getSize() {
 		return this.size;
@@ -41,7 +47,6 @@ public abstract class Sprite implements ICollide {
 
 	@Override
 	public void onCollide(ICollide collider) {
-		// TODO Auto-generated method stub
 	}
 
 
