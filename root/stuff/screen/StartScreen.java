@@ -1,11 +1,14 @@
 package root.stuff.screen;
 
 
+import processing.core.PFont;
 import root.Sketch;
 
 
 public class StartScreen extends Screen {
 	
+	PFont score;
+
 	@Override
 	public void draw() {
 
@@ -18,7 +21,7 @@ public class StartScreen extends Screen {
 
 	@Override
 	public void hud() {
-		
+	
 		sketch.background(0);
 		sketch.fill(0, 255, 0);
 		sketch.textSize(50);

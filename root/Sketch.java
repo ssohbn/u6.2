@@ -9,6 +9,8 @@ import root.stuff.util.Size;
 public class Sketch extends PApplet {
 
 	public PFont arcade;
+	public PFont score;
+
 	public Screen screen = new StartScreen(this);
 	public static final Size SCREEN_SIZE = new Size(640, 640);
 
@@ -19,6 +21,7 @@ public class Sketch extends PApplet {
 	public void setup() {
 		background(255);
 		arcade = createFont("./root/resources/arcade.TTF", 128);
+		score = createFont("./root/resources/score.otf", 128);
 		textFont(arcade);
 	}
   

@@ -31,6 +31,7 @@ public class EndScreen extends Screen {
 
 	@Override
 	public void hud() {
+		sketch.textSize(15);
 		sketch.fill(0);
 		sketch.text("you die", 40, 240);
 		sketch.text("score: " + score, 40, 260);
