@@ -1,4 +1,4 @@
-package root.stuff.tiles.Forest;
+package root.stuff.tiles.Desert;
 
 import processing.core.PImage;
 import root.Sketch;
@@ -6,10 +6,10 @@ import root.stuff.interfaces.ICollide;
 import root.stuff.sprites.trees.Tree;
 import root.stuff.util.Position;
 
-public class ForestTileTree extends ForestTile implements ICollide {
+public class DesertTileObstacle extends DesertTile implements ICollide {
 	Tree tree;
 	PImage image;
-	public ForestTileTree(Position position, Sketch sketch, Tree tree) {
+	public DesertTileObstacle(Position position, Sketch sketch, Tree tree) {
 		super(position, sketch);
 		this.tree = tree;
 	}

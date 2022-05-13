@@ -7,7 +7,7 @@ import root.stuff.tiles.templates.TemplateRow;
 import root.stuff.util.Position;
 import root.stuff.util.Size;
 
-public class ForestRow extends TemplateRow {
+public class DesertRow extends TemplateRow {
 
 	@Override
 	protected void genTiles(int y, Sketch sketch) {
@@ -16,16 +16,16 @@ public class ForestRow extends TemplateRow {
 			Position position = new Position(i * 64, y);
 			int randomNum = rand.nextInt(8);
 			if (randomNum == 1) {
-				tiles[i] = new ForestTileTree(position, sketch, new Cactus(position, sketch));
+				tiles[i] = new DesertTileObstacle(position, sketch, new Cactus(position, sketch));
 			} else if (randomNum == 2) {
-				tiles[i] = new ForestTileTree(position, sketch, new PalmTree(position, sketch));
+				tiles[i] = new DesertTileObstacle(position, sketch, new PalmTree(position, sketch));
 			} else {
-				tiles[i] = new ForestTile(new Position(i * 64, y), sketch);
+				tiles[i] = new DesertTile(new Position(i * 64, y), sketch);
 			}
 		}
 	}
 
-	public ForestRow(int y, Sketch sketch) {
+	public DesertRow(int y, Sketch sketch) {
 		super(y, sketch);
 		//TODO Auto-generated constructor stub
 	}

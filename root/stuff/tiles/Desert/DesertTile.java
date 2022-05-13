@@ -1,12 +1,12 @@
-package root.stuff.tiles.Forest;
+package root.stuff.tiles.Desert;
 
 import root.Sketch;
 import root.stuff.tiles.templates.TemplateTile;
 import root.stuff.util.Position;
 
-public class ForestTile	extends TemplateTile {
+public class DesertTile	extends TemplateTile {
 
-	public ForestTile(Position position, Sketch sketch) {
+	public DesertTile(Position position, Sketch sketch) {
 		super(position, sketch);
 	}
 
