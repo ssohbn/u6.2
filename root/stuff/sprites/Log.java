@@ -20,6 +20,7 @@ public class Log extends Sprite {
 
 		sketch.screen.collidables.add(this);
 		sketch.screen.drawables.add(this);
+		System.out.println("log created");
 	}
 
 	boolean bob = true; 

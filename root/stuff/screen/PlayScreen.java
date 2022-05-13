@@ -98,6 +98,10 @@ public class PlayScreen extends Screen {
 
 	@Override
 	public void update() {
+		ArrayList<IDraw> toRemove = new ArrayList<IDraw>();
+		ArrayList<ICollide> toRemoveCollidable = new ArrayList<ICollide>();
+
+		boolean shouldGenNewRow = false;
 		boolean touchingLog = false;
 		boolean touchingWater = false;
 		for (ICollide collider : this.collidables) {
@@ -121,11 +125,11 @@ public class PlayScreen extends Screen {
 			moveable.move();
 		}
 
-		boolean shouldGenNewRow = false;
-		ArrayList<IDraw> toRemove = new ArrayList<IDraw>();
-		ArrayList<ICollide> toRemoveCollidable = new ArrayList<ICollide>();
 
 		for (IDraw drawable : drawables) {
+			if (drawable instanceof Log ) {
+				System.out.println("log found ");
+			}
 			drawable.fall(2);
 
 			if (drawable.shouldPurgeOffscreen() ) {
@@ -142,8 +146,6 @@ public class PlayScreen extends Screen {
 			}
 		}
 
-		/* removals */
-		// TODO: duplicated code
 		for ( IDraw drawable : toRemove) {
 			System.out.println("removing drawable");
 			drawables.remove(drawable);
@@ -154,7 +156,15 @@ public class PlayScreen extends Screen {
 			this.collidables.remove(collidable);
 		}
 
-		/* row generation */
+		rowGeneration(shouldGenNewRow);
+		
+		score++;
+	}
+
+
+
+	public void rowGeneration(boolean shouldGenNewRow) {
+
 		if ( rowsGenerated % 10 == 0) {
 			this.biome = Biome.WATER;
 		}
@@ -166,8 +176,6 @@ public class PlayScreen extends Screen {
 				this.biome = randomBiome();
 			}
 		}
-		
-		score++;
 	}
 
 	public void genNewRow() {

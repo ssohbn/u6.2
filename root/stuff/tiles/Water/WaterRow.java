@@ -22,7 +22,6 @@ public class WaterRow extends TemplateRow {
 		}
 		Random r = new Random();
 		boolean left = r.nextBoolean();
-		System.out.println("hi");
 		if ( left ) {
 			new Log(new Position(0, -32), sketch, new Size(32, 64), new Speed(4, 0));
 		} else {

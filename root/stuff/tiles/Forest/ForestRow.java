@@ -33,7 +33,6 @@ public class ForestRow extends TemplateRow {
 
 	public ForestRow(int y, Sketch sketch) {
 		super(y, sketch);
-		//TODO Auto-generated constructor stub
 	}
 
 	@Override
