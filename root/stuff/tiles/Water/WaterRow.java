@@ -10,6 +10,7 @@ import root.stuff.util.Size;
 import root.stuff.util.Speed;
 
 public class WaterRow extends TemplateRow {
+	Log log;
 
 	public WaterRow(int y, Sketch sketch) {
 		super(y, sketch);
@@ -23,10 +24,15 @@ public class WaterRow extends TemplateRow {
 		Random r = new Random();
 		boolean left = r.nextBoolean();
 		if ( left ) {
-			new Log(new Position(0, -32), sketch, new Size(32, 64), new Speed(4, 0));
+			this.log = new Log(new Position(0, -32), sketch, new Size(32, 64), new Speed(4, 0));
 		} else {
-			new Log(new Position(sketch.width, -32), sketch, new Size(32, 64), new Speed(-4, 0));
+			this.log = new Log(new Position(sketch.width, -32), sketch, new Size(32, 64), new Speed(-4, 0));
 		}
 	}
-
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		super.draw();
+		this.log.draw();
+	}
 }

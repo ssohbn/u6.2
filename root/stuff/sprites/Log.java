@@ -18,8 +18,6 @@ public class Log extends Sprite {
 		super(position, sketch, size, sketch.loadImage("./root/resources/log.png"));
 		this.speed = speed;
 
-		sketch.screen.collidables.add(this);
-		sketch.screen.drawables.add(this);
 		System.out.println("log created");
 	}
 

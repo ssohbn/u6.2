@@ -147,12 +147,12 @@ public class PlayScreen extends Screen {
 		}
 
 		for ( IDraw drawable : toRemove) {
-			System.out.println("removing drawable");
+			System.out.println("removing drawable: " + drawable);
 			drawables.remove(drawable);
 		}
 
 		for ( ICollide collidable : toRemoveCollidable ) {
-			System.out.println("removing collidable");
+			System.out.println("removing collidable: " + collidable);
 			this.collidables.remove(collidable);
 		}
 
