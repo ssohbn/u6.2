@@ -26,13 +26,19 @@ public class WaterRow extends TemplateRow {
 		if ( left ) {
 			this.log = new Log(new Position(0, -32), sketch, new Size(32, 64), new Speed(4, 0));
 		} else {
-			this.log = new Log(new Position(sketch.width, -32), sketch, new Size(32, 64), new Speed(-4, 0));
+			this.log = new Log(new Position(sketch.width, -32), sketch, new Size(64, 32), new Speed(-4, 0));
 		}
 	}
 	@Override
 	public void draw() {
-		// TODO Auto-generated method stub
 		super.draw();
 		this.log.draw();
+	}
+
+	@Override
+	public void fall(int y) {
+		// TODO Auto-generated method stub
+		super.fall(y);
+		this.log.fall(y);
 	}
 }

@@ -21,21 +21,9 @@ public class Log extends Sprite {
 		System.out.println("log created");
 	}
 
-	boolean bob = true; 
-	/** cute lil bob for the floaty log */
-	private void bob() {
-		if ( this.bob ) {
-			this.position.y +=2;
-		} else {
-			this.position.y -=2;
-		}
-		this.bob = !this.bob;
-	}
-
 	@Override
 	public void fall(int i) {
 		super.fall(i);
-		this.bob();
 		this.position.add(this.speed);
 	}
 	
