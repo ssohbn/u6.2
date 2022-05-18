@@ -9,6 +9,8 @@ import root.stuff.scores.ScoreHelper;
 public class EndScreen extends Screen {
 	int start;
 	int score;
+	
+	int scoreX = 40;
 
 	public EndScreen(Sketch sketch, int score) {
 		super(sketch);
@@ -23,35 +25,44 @@ public class EndScreen extends Screen {
 
 	@Override
 	public void update() {
-		if ( sketch.millis() - start > (2 * 1000) ) {
-			ScoreHelper.submitScore(score);
-			sketch.screen = new StartScreen(sketch);
-		}
+		// if ( sketch.millis() - start > (2 * 1000) ) {
+			
+		// }
 	}
 
 	@Override
 	public void hud() {
-		sketch.textSize(15);
+		sketch.background(47, 153, 236);
+		sketch.textSize(30);
 		sketch.fill(0);
-		sketch.text("you die", 40, 240);
-		sketch.text("score: " + score, 40, 260);
-		sketch.text("restartigng in: " + ((sketch.millis()-start)/1000), 40, 280);
+		sketch.text("You died with a score of " + score, 400, 240);
+		sketch.text("Press Any Key to Restart", 400, 280);
 		displayScores();
 	}
 
 	void displayScores() {
 		ArrayList<Integer> scores = ScoreHelper.getScores();
 		Collections.reverse(scores);
-		sketch.text("recent scores", 80, 20);
+		sketch.text("Recent Scores", 120, 20);
+		sketch.textSize(15);
 
 		for ( int i = 0; i < scores.size(); i++ ) {
-			sketch.text(scores.get(i), 80, 40 + i*18);
+			sketch.text(scores.get(i), scoreX + (20 * i%10), 50 + i*18);
+		
+			if(scores.size() >= 32) {
+				scoreX = 80;
+			}
+		
+		
 		}
+		
+
 	}
 
 	@Override
 	public void handleKeydown(int keyCode) {
-		
+		sketch.screen = new StartScreen(sketch); 
+		ScoreHelper.submitScore(score);
 	}
 
 	@Override
