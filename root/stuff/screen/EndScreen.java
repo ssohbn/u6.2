@@ -47,12 +47,15 @@ public class EndScreen extends Screen {
 		sketch.textSize(15);
 
 		for ( int i = 0; i < scores.size(); i++ ) {
-			sketch.text(scores.get(i), scoreX + (20 * i%10), 50 + i*18);
+			sketch.text(scores.get(i), scoreX, 50 + i*18);
 		
-			if(scores.size() >= 32) {
+			if(i < 32) {
 				scoreX = 80;
 			}
-		
+			
+			if(i > 32 && i < 64) {
+				scoreX = 160;
+			}
 		
 		}
 		
