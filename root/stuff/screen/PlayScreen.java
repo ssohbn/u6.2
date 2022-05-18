@@ -107,13 +107,7 @@ public class PlayScreen extends Screen {
 		for (ICollide collider : this.collidables) {
 			if (!collider.colliding(player)) continue;
 
-			if (collider instanceof Tree ) {
-				sketch.screen = new EndScreen(this.sketch, score);
-			} else if (collider instanceof Log ) {
-				touchingLog = true;
-			} else if (collider instanceof WaterRow ) {
-				touchingWater = true;
-			}
+			sketch.screen = new EndScreen(this.sketch, score);
 		}
 		
 		if ( touchingWater && !touchingLog ) {

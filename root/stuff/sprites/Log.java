@@ -17,8 +17,6 @@ public class Log extends Sprite {
 	public Log(Position position, Sketch sketch, Size size, Speed speed) {
 		super(position, sketch, size, sketch.loadImage("./root/resources/log.png"));
 		this.speed = speed;
-
-		System.out.println("log created");
 	}
 
 	@Override
