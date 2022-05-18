@@ -27,6 +27,8 @@ public class PlayScreen extends Screen {
 	Player player;
 	Car  towMater, sallyCarrera;
 	Biome biome;
+	public boolean touchingLog = false;
+	public boolean touchingWater = false;
 
 	/* keys */
 	boolean[] keys      = new boolean[4];
@@ -102,8 +104,6 @@ public class PlayScreen extends Screen {
 		ArrayList<ICollide> toRemoveCollidable = new ArrayList<ICollide>();
 
 		boolean shouldGenNewRow = false;
-		boolean touchingLog = false;
-		boolean touchingWater = false;
 		for (ICollide collider : this.collidables) {
 			if (!collider.colliding(player)) continue;
 
