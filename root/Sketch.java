@@ -24,6 +24,7 @@ public class Sketch extends PApplet {
 		background(255);
 		arcade = createFont("./root/resources/arcade.TTF", 128);
 		score = createFont("./root/resources/score.otf", 128);
+
 		textFont(arcade);
 	}
   
