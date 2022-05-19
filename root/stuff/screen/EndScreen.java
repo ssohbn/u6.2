@@ -16,6 +16,7 @@ public class EndScreen extends Screen {
 		super(sketch);
 		start = sketch.millis();
 		this.score = score;
+		sketch.crashSound.play();
 	}
 
 	@Override

@@ -206,6 +206,8 @@ public class PlayScreen extends Screen {
 
 	@Override
 	public void handleKeydown(int keyCode) {
+		this.sketch.moveSound.play();
+
 		if (keyCode == sketch.LEFT) {
 			keys[kLEFT] = true;
 		} else if (keyCode == sketch.UP) {
