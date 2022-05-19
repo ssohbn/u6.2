@@ -9,7 +9,6 @@ import root.stuff.interfaces.IDraw;
 import root.stuff.interfaces.IMove;
 import root.stuff.interfaces.IRow;
 import root.stuff.sprites.Log;
-import root.stuff.sprites.trees.Tree;
 import root.stuff.sprites.vehicles.Car;
 import root.stuff.sprites.vehicles.Player;
 import root.stuff.tiles.Biome;
@@ -20,7 +19,6 @@ import root.stuff.tiles.Water.WaterRow;
 import root.stuff.util.Color;
 import root.stuff.util.Position;
 import root.stuff.util.Speed;
-
 
 public class PlayScreen extends Screen {
 	public static int score = 0;
@@ -208,6 +206,8 @@ public class PlayScreen extends Screen {
 
 	@Override
 	public void handleKeydown(int keyCode) {
+		this.sketch.moveSound.play();
+
 		if (keyCode == sketch.LEFT) {
 			keys[kLEFT] = true;
 		} else if (keyCode == sketch.UP) {

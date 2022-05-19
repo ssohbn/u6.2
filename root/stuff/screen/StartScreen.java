@@ -41,6 +41,6 @@ public class StartScreen extends Screen {
 
 	public StartScreen(Sketch sketch) {
 		super(sketch);
-	
+		this.sketch.startSound.play();
 	}
 }
