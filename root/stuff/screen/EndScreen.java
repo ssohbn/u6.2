@@ -25,9 +25,6 @@ public class EndScreen extends Screen {
 
 	@Override
 	public void update() {
-		// if ( sketch.millis() - start > (2 * 1000) ) {
-			
-		// }
 	}
 
 	@Override
@@ -45,21 +42,10 @@ public class EndScreen extends Screen {
 		Collections.reverse(scores);
 		sketch.text("Recent Scores", 120, 20);
 		sketch.textSize(15);
-
+		int rows = 2;
 		for ( int i = 0; i < scores.size(); i++ ) {
-			sketch.text(scores.get(i), scoreX, 50 + i*18);
-		
-			if(i < 32) {
-				scoreX = 80;
-			}
-			
-			if(i > 32 && i < 64) {
-				scoreX = 160;
-			}
-		
+			sketch.text(scores.get(i), scoreX + 30 * (i%rows), 50 + (18 * (i + (i%rows))));
 		}
-		
-
 	}
 
 	@Override
