@@ -42,12 +42,10 @@ public class EndScreen extends Screen {
 		Collections.reverse(scores);
 		sketch.text("Recent Scores", 120, 20);
 		sketch.textSize(15);
-
+		int rows = 2;
 		for ( int i = 0; i < scores.size(); i++ ) {
-			sketch.text(scores.get(i), scoreX + 20 * (i%2), 50 + (i*18));
+			sketch.text(scores.get(i), scoreX + 30 * (i%rows), 50 + (18 * (i + (i%rows))));
 		}
-		
-
 	}
 
 	@Override
