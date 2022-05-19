@@ -1,8 +1,14 @@
 package root;
 
+import java.time.chrono.ThaiBuddhistChronology;
+
 import processing.core.PApplet;
 import processing.core.PFont;
+<<<<<<< HEAD
 import processing.core.PImage;
+=======
+import processing.sound.SoundFile;
+>>>>>>> 4a693678e81a4f7a8074dc0321bcf17371bdcf4e
 import root.stuff.screen.Screen;
 import root.stuff.screen.StartScreen;
 import root.stuff.util.Size;
@@ -16,7 +22,11 @@ public class Sketch extends PApplet {
 	public PImage CAR3;
 	public PImage HELI;
 
-	public Screen screen = new StartScreen(this);
+	public SoundFile moveSound;
+	public SoundFile crashSound;
+	public SoundFile startSound;
+
+	public Screen screen;
 	public static final Size SCREEN_SIZE = new Size(640, 640);
 
 	public void settings() {
@@ -26,6 +36,10 @@ public class Sketch extends PApplet {
 	}
 
 	public void setup() {
+		moveSound = new SoundFile(this,"./root/resources/move.mp3");
+		crashSound = new SoundFile(this,"./root/resources/crash.mp3");
+		startSound = new SoundFile(this,"./root/resources/start.mp3");
+
 		background(255);
 		arcade = createFont("./root/resources/arcade.TTF", 128);
 		score = createFont("./root/resources/score.otf", 128);
@@ -37,6 +51,9 @@ public class Sketch extends PApplet {
 
 
 		textFont(arcade);
+
+
+		screen = new StartScreen(this);
 	}
   
 	public void keyPressed() {
