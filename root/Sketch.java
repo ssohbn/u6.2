@@ -1,7 +1,5 @@
 package root;
 
-import java.time.chrono.ThaiBuddhistChronology;
-
 import processing.core.PApplet;
 import processing.core.PFont;
 import processing.sound.SoundFile;
